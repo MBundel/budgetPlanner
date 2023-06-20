@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {BudgetBookComponent} from "./budget-book/budget-book.component";
-import {CashflowcardComponent} from "./cashflowcard/cashflowcard.component";
-
-
+import {CashflowCardComponent} from "./cashflow-card/cashflow-card.component";
+import {CashflowDetailComponent} from "./cashflow-detail/cashflow-detail.component";
 
 
 const routes: Routes = [
   {path:"budgetBook", component:BudgetBookComponent},
-  {path:"cashflowcard", component:CashflowcardComponent}
+  {path:"cashflow-card", component:CashflowCardComponent},
+  {path:"cashflow-detail", component:CashflowDetailComponent}
 ];
 
 @NgModule({
