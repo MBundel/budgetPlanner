@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BudgetBookComponent } from './budget-book/budget-book.component';
 import { BtnComponent } from './btn/btn.component';
+import { CashflowcardComponent } from './cashflowcard/cashflowcard.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { BtnComponent } from './btn/btn.component';
     AppComponent,
     BudgetBookComponent,
     BtnComponent,
+    CashflowcardComponent,
 
   ],
   imports: [
