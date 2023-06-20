@@ -1,1 +1,24 @@
-<p>budget-book works!</p>
+<div>
+  <div>Haushaltsbuch </div>
+  <div class="header"><!-- {{ sum }} --> € Platzhalter für sum </div>
+</div>
+
+<div>
+  <div>
+    <div>Einkommen </div>
+    <div class="income"><!-- {{ income.sum }} --> € Platzhalter für income.sum </div>
+    <ul>
+ <!--     <li *ngFor="let item of income.items"> <app-listTag/> </li> -->
+    </ul>
+    <app-btn></app-btn>
+  </div>
+
+  <div>
+    <div> Ausgaben </div>
+    <div class="spendings"><!-- {{ spendings.sum }} -->€ Platzhalter für spendings.sum </div>
+    <ul>
+  <!--    <li *ngFor="let item of spendings.items"> -->Hier werden die spendings aufgelistet. <!--<app-listTag/> </li> -->
+    </ul>
+    <app-btn></app-btn>
+  </div>
+</div>
