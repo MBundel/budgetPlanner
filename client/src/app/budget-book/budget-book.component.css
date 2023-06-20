@@ -1,0 +1,30 @@
+.container {
+  flex-direction: column;
+  border-style: solid;
+  border-width: 1px;
+
+}
+.header {
+  border-style: solid;
+  border-width: 1px;
+  background-color: indianred;
+}
+
+.lowercontainer {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.income {
+  border-style: solid;
+  border-width: 1px;
+  background-color: slategrey;
+  width: 50%;
+}
+
+.costs {
+  border-style: solid;
+  border-width: 1px;
+  background-color: burlywood;
+  width: 50%;
+}
