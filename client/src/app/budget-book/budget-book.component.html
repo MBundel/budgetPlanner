@@ -1,24 +1,29 @@
-<div>
-  <div>Haushaltsbuch </div>
-  <div class="header"><!-- {{ sum }} --> € Platzhalter für sum </div>
-</div>
-
-<div>
+<div class="container">
   <div>
-    <div>Einkommen </div>
-    <div class="income"><!-- {{ income.sum }} --> € Platzhalter für income.sum </div>
-    <ul>
- <!--     <li *ngFor="let item of income.items"> <app-listTag/> </li> -->
-    </ul>
-    <app-btn></app-btn>
+    <div class="header">
+      <div>Haushaltsbuch </div>
+      <!-- {{ sum }} --> € Platzhalter für sum </div>
+
   </div>
 
-  <div>
-    <div> Ausgaben </div>
-    <div class="spendings"><!-- {{ spendings.sum }} -->€ Platzhalter für spendings.sum </div>
-    <ul>
-  <!--    <li *ngFor="let item of spendings.items"> -->Hier werden die spendings aufgelistet. <!--<app-listTag/> </li> -->
-    </ul>
-    <app-btn></app-btn>
+  <div class="lowercontainer">
+      <div class="income">
+        <div>Einkommen</div>
+        <!-- {{ income.sum }} --> € Dummy für income.sum
+      <ul>
+   <!--     <li *ngFor="let item of income.items"> <app-listTag/> </li> -->
+      </ul>
+        <!-- Achtung! app-btn zu app-button geändert! -->
+      <app-button></app-button>
+      </div>
+      <div class="costs">
+        <div> Ausgaben </div>
+        <!-- {{ costs.sum }} -->€ Dummy für spendings.sum
+      <ul>
+    <!--    <li *ngFor="let item of costs.items"> -->Hier werden die costs aufgelistet. <!--<app-listTag/> </li> -->
+      </ul>
+        <!-- Achtung! app-btn zu app-button geändert! -->
+      <app-button></app-button>
+      </div>
   </div>
 </div>
