@@ -1,0 +1,22 @@
+
+.buttonClass {
+  font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:51px;
+  border-width:0px;
+  color:#fff;
+  border-color:#18ab29;
+  font-weight:bold;
+  border-top-left-radius:22px;
+  border-top-right-radius:22px;
+  border-bottom-left-radius:22px;
+  border-bottom-right-radius:22px;
+  text-shadow: 4px 2px 3px #2f6627;
+  background:#44c767;
+}
+
+.buttonClass:hover {
+  background: #5cbf2a
+}
+
