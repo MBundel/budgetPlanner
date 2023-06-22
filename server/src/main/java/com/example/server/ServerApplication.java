@@ -15,13 +15,13 @@ public class ServerApplication {
 
     @PostConstruct
     public void dummyData() {
-        /*
+/*
         // TODO: Einfügen, sobald Controller steht:
         if (userRepository.count() == 0) {
             userRepository.save(new User("Hans", "Hase", "hans.hase@gmail.com", "MeinPasswortkenntkeiner"));
             userRepository.save(new User("Trudi", "Tomate", "");
         }
-         */
+*/
         System.out.println("Server Application läuft.");
     }
 }

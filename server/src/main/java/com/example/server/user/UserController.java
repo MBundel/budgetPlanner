@@ -1,20 +1,35 @@
 package com.example.server.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 // TODO: RequestMapping erforderlich?
-// @RequestMapping("user")
+@RequestMapping("/api/user")
 public class UserController {
 
     private UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
+
         this.userService = userService;
     }
+
+    @GetMapping("/api/registration")
+    public RegistrationDTO showRegistration() {
+        return new RegistrationDTO("", "", "", "");
+    }
+/*
+    @PostMapping("/api/registration")
+    public RegistrationDTO register(@RequestBody RegistrationDTO registrationDTO) {
+        // Entry entry = entryRepository.save(new Entry(entryDTO.getName(), entryDTO.getText()));
+        User newUser = userService.addUser(new User(registrationDTO.getUser_name(), registrationDTO.getPassword1(), registrationDTO.getEmail()));
+        return new RegistrationDTO(newUser.getUser_name(),newUser.getPassword(), newUser.getEmail(), newUser.);
+    }
+*/
 
     /*
     Von Zwitscher-App:
