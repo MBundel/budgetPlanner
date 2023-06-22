@@ -1,7 +1,12 @@
 package com.example.server.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -28,6 +33,28 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public boolean existsByUsername(String userName) {
+             User user = userRepository.findUserByUsername(userName).orElse(null);
+             if(user != null) {
+                 return true;
+             }
+             return false;
+    }
+
+    // Für Rest Client und Admin:
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
+
+
+
+    public boolean existsByEmail(String email) {
+        User user = userRepository.findUserByEmail(email).orElse(null);
+        if(user != null) {
+            return true;
+        }
+        return false;
+    }
     /*
     public void deleteUser (User user) {
         userRepository.delete(user);

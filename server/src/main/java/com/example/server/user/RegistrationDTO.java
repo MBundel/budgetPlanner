@@ -1,32 +1,36 @@
 package com.example.server.user;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class RegistrationDTO {
 
     // TODO: Funktioniert Validator?
     @NotEmpty
-    private String user_name;
+    private String username;
+
+    @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     private String email;
-    @Size(min = 5, message = "Your password must have at least 5 characters.")
+
+    //TODO: Doppelslash falsch?
+    @Pattern(regexp = "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=])(?=\\S+$).{8,}$", message = "Password must be at least 8 " +
+            "characters long, contain at least one uppercase letter, one lowercase letter, one digit and one special character.")
     private String password1;
     private String password2;
 
-    // private String role;
-
-    public RegistrationDTO(String user_name, String password1, String password2, String email) {
-        this.user_name = user_name;
+    public RegistrationDTO(String username, String password1, String password2, String email) {
+        this.username = username;
         this.password1 = password1;
         this.password2 = password2;
         this.email = email;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword1() {
@@ -52,14 +56,5 @@ public class RegistrationDTO {
     public void setEmail(String email) {
         this.email = email;
     }
-/*
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
- */
 }
