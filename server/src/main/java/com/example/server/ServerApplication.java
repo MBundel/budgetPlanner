@@ -1,5 +1,7 @@
 package com.example.server;
 
+import com.example.server.user.User;
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,4 +12,16 @@ public class ServerApplication {
         SpringApplication.run(ServerApplication.class, args);
     }
 
+
+    @PostConstruct
+    public void dummyData() {
+        /*
+        // TODO: Einfügen, sobald Controller steht:
+        if (userRepository.count() == 0) {
+            userRepository.save(new User("Hans", "Hase", "hans.hase@gmail.com", "MeinPasswortkenntkeiner"));
+            userRepository.save(new User("Trudi", "Tomate", "");
+        }
+         */
+        System.out.println("Server Application läuft.");
+    }
 }
