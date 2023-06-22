@@ -6,8 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-// TODO: RequestMapping erforderlich?
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 public class UserController {
 
     private UserService userService;
@@ -18,18 +17,18 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/api/registration")
+    @GetMapping("/registration")
     public RegistrationDTO showRegistration() {
         return new RegistrationDTO("", "", "", "");
     }
-/*
-    @PostMapping("/api/registration")
+
+    @PostMapping("/registration")
     public RegistrationDTO register(@RequestBody RegistrationDTO registrationDTO) {
         // Entry entry = entryRepository.save(new Entry(entryDTO.getName(), entryDTO.getText()));
         User newUser = userService.addUser(new User(registrationDTO.getUser_name(), registrationDTO.getPassword1(), registrationDTO.getEmail()));
-        return new RegistrationDTO(newUser.getUser_name(),newUser.getPassword(), newUser.getEmail(), newUser.);
+        return new RegistrationDTO(newUser.getUser_name(), newUser.getPassword(), newUser.getEmail(), newUser.getRole());
     }
-*/
+
 
     /*
     Von Zwitscher-App:
