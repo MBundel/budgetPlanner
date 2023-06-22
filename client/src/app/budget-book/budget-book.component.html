@@ -13,7 +13,8 @@
       <ul>
    <!--     <li *ngFor="let item of income.items"> <app-listTag/> </li> -->
       </ul>
-        <!-- Achtung! app-btn zu app-button geändert! -->
+        <app-cashflow-card></app-cashflow-card>
+
       <app-button></app-button>
       </div>
       <div class="costs">
@@ -21,8 +22,13 @@
         <!-- {{ costs.sum }} -->€ Dummy für costs.sum
       <ul>
     <!--    <li *ngFor="let item of costs.items"> -->Hier werden die costs aufgelistet. <!--<app-listTag/> </li> -->
+        <app-cashflow-card></app-cashflow-card>
+
       </ul>
-        <!-- Achtung! app-btn zu app-button geändert! -->
+        <tr *ngFor="let entry of entries">
+          <td>{{ entry.name }}</td>
+          <td>{{ entry.amount }}</td>
+          <td>{{ entry.category }}</td>
       <app-button></app-button>
       </div>
   </div>

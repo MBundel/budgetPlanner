@@ -7,6 +7,7 @@ import { BudgetBookComponent } from './budget-book/budget-book.component';
 import { CashflowCardComponent} from "./cashflow-card/cashflow-card.component";
 import { CashflowDetailComponent } from './cashflow-detail/cashflow-detail.component';
 import { ButtonComponent } from './button/button.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,10 +18,12 @@ import { ButtonComponent } from './button/button.component';
     CashflowDetailComponent,
     ButtonComponent,
 
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,16 @@
 package com.example.server;
 
-import com.example.server.user.User;
 import jakarta.annotation.PostConstruct;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+
+
 public class ServerApplication {
+
+
 
     public static void main(String[] args) {
         SpringApplication.run(ServerApplication.class, args);
@@ -24,4 +28,5 @@ public class ServerApplication {
 */
         System.out.println("Server Application läuft.");
     }
+
 }

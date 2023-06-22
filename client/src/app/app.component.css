@@ -1,0 +1,18 @@
+
+.buttonClass {
+  font-size:15px;
+  width:140px;
+  height:51px;
+  border-width:0;
+  color:#fff;
+  border-color:#18ab29;
+  font-weight:bold;
+  border-radius: 22px;
+  text-shadow: 4px 2px 3px #2f6627;
+  background:#44c767;
+}
+
+.buttonClass:hover {
+  background: #5cbf2a
+}
+
