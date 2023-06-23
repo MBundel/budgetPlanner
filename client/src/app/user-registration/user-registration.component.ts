@@ -18,6 +18,7 @@ export class UserRegistrationComponent {
     this.http.post('/api/registration', this.newUser).subscribe(
       response => {
         console.log('Benutzer erfolgreich registriert', response);
+        this.newUser = {username: '', email:'', password1: '', password2:''}
       },
       error => {
         console.log('Fehler bei der Benutzerregistrierung', error);
