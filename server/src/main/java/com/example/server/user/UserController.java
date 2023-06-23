@@ -1,51 +1,64 @@
 package com.example.server.user;
-
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-// TODO: RequestMapping erforderlich?
-// @RequestMapping("user")
+@RequestMapping("/api")
 public class UserController {
 
     private UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
+
         this.userService = userService;
     }
 
-    /*
-    Von Zwitscher-App:
-    @GetMapping("/register")
-    public String register(Model model) {
-        model.addAttribute("registration", new RegistrationDTO("", "", ""));
-        return "register";
+    @GetMapping("/registration")
+    public RegistrationDTO showRegistration() {
+        return new RegistrationDTO("", "", "", "");
     }
 
+    @PostMapping("/registration")
+    public RegistrationDTO register(@Valid @RequestBody RegistrationDTO registrationDTO) {
 
-    @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("registration") RegistrationDTO registration, BindingResult bindingResult) {
-
-        if(!registration.getPassword1().equals(registration.getPassword2())) {
-            bindingResult.addError(new FieldError("registration", "password2", "passwords are not matching"));
+        if(registrationDTO.getUsername().equals("")) {
+            return new RegistrationDTO("This field must not be empty.", "", "", "");
         }
 
-        if(userRepository.existsByUsername(registration.getUsername())) {
-            bindingResult.addError(new FieldError("registration", "username", "username already in use"));
+        if(!registrationDTO.getPassword1().equals(registrationDTO.getPassword2())) {
+            return new RegistrationDTO("", "", "The passwords do not match.", "");
         }
 
-        if(bindingResult.hasErrors()) {
-            return "register";
+        if(userService.existsByUsername(registrationDTO.getUsername())) {
+            return new RegistrationDTO("Username is already in use.", "", "", "");
         }
 
-        // Everything okay with signing up!!!
-        User user = new User(registration.getUsername(), registration.getPassword1());
-        userRepository.save(user);
+        if(userService.existsByEmail(registrationDTO.getEmail())) {
+            return new RegistrationDTO("", "", "", "Email address is already in use.");
+        }
 
-        return "redirect:/login";
+        if(!registrationDTO.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
+            return new RegistrationDTO("", "", "", "This is not a valid email address.");
+        }
+        /* TODO: Fehler beheben!
+        // "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=])(?=\\S+$).{8,}$
+        if(!registrationDTO.getPassword1().matches("^(?=.[a-z])(?=.[A-Z])(?=.\\d)(?=.[@$!%?&])[A-Za-z\\d@$!%?&]{8,}$")) {
+            return new RegistrationDTO("", "", "", "This is not a valid password.");
+        }
+
+         */
+
+        User newUser = userService.addUser(new User(registrationDTO.getUsername(), registrationDTO.getPassword1(), registrationDTO.getEmail()));
+        return new RegistrationDTO(newUser.getUsername(), newUser.getPassword(), newUser.getEmail(), newUser.getRole());
     }
-     */
 
+    // Für Rest Client und Admin:
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
+         return userService.findAllUsers();
+    }
 }

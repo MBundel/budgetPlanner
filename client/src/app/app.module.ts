@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule} from "@angular/forms";
 import { BudgetBookComponent } from './budget-book/budget-book.component';
 import { CashflowCardComponent} from "./cashflow-card/cashflow-card.component";
 import { CashflowDetailComponent } from './cashflow-detail/cashflow-detail.component';
 import { ButtonComponent } from './button/button.component';
 import { HttpClientModule } from '@angular/common/http';
-import {FilterByDebitPipe} from "./helper/FilterByDebitPipe";
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 
 
@@ -19,13 +20,14 @@ import {FilterByDebitPipe} from "./helper/FilterByDebitPipe";
     CashflowCardComponent,
     CashflowDetailComponent,
     ButtonComponent,
-    FilterByDebitPipe
+    UserRegistrationComponent,
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
   ],
   providers: [],
