@@ -12,7 +12,7 @@ import org.springframework.data.annotation.Id;
 import java.time.Instant;
 
 
-@Table(name = "cash_flow_detail")
+@Table(name = "entry_cash_flow")
 @Entity
 public class EntryCashFlow {
     @jakarta.persistence.Id
@@ -22,16 +22,20 @@ public class EntryCashFlow {
     private String name;
     private double amount;
     private String category;
+
+
+    private boolean isDebit;
     private Instant createdAt;
 
     public EntryCashFlow() {
     }
 
-    public EntryCashFlow(String name, double amount, String category) {
+    public EntryCashFlow(String name, double amount, String category, boolean isDebit) {
         this.name = name;
         this.amount = amount;
         this.category = category;
         this.createdAt = Instant.now();
+        this.isDebit = isDebit;
     }
 
     public String getName() {
@@ -47,6 +51,9 @@ public class EntryCashFlow {
     }
 
 
+    public boolean isDebit() {
+        return isDebit;
+    }
 
 
     public Instant getCreatedAt(){

@@ -1,11 +1,13 @@
 <div class="component-container">
-<div>
-  cashflowcard component
-  <ul>
-    <li>
-        <app-cashflow-detail></app-cashflow-detail>
-    </li>
-  </ul>
-  <app-button></app-button>
-</div>
+
+  <div>
+  hard Spaß
+    <tr *ngFor="let entry of entries">
+  {{entry}}
+
+      <app-cashflow-detail [entry]="entry"></app-cashflow-detail>
+
+    </tr>
+      <app-button></app-button>
+  </div>
 </div>

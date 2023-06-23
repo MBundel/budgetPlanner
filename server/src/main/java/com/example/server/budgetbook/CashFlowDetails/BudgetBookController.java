@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -19,23 +20,40 @@ public class BudgetBookController {
         this.entryCashFlowRepository = entryCashFlowRepository;
     }
 
+//    @GetMapping("/api/budgetbook")
+//    public List<EntryCashFlowDTO> read() {
+//        List<EntryCashFlowDTO> response = new LinkedList<>();
+//
+//        return entryCashFlowRepository
+//                .findAllByOrderByCreatedAtDesc()
+//                .stream()
+//                .map(EntryCashFlowConverter::toDTO)
+//                .collect(Collectors.toList());
+//
+//    }
     @GetMapping("/api/budgetbook")
-    public List<EntryCashFlowDTO> read() {
-        List<EntryCashFlowDTO> response = new LinkedList<>();
+    public Map<String, List<EntryCashFlow>> getEntriesByCategory() {
+        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
+        Map<String, List<EntryCashFlow>> entriesByCategory = entries.stream()
+                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
 
-        return entryCashFlowRepository
-                .findAllByOrderByCreatedAtDesc()
-                .stream()
-                .map(EntryCashFlowConverter::toDTO)
-                .collect(Collectors.toList());
-
+        return entriesByCategory;
     }
 
     @PostMapping("/api/budgetbook")
     public List<EntryCashFlowDTO> write(@RequestBody EntryCashFlowDTO entryDTO) {
-        entryCashFlowRepository.save(EntryCashFlowConverter.fromDTO(entryDTO));
-        return read();
+        EntryCashFlow entry = EntryCashFlowConverter.fromDTO(entryDTO);
+        entryCashFlowRepository.save(entry);
+        return entryCashFlowRepository.findAllByOrderByCreatedAtDesc().stream()
+                .map(EntryCashFlowConverter::toDTO)
+                .collect(Collectors.toList());
     }
+
+//    @PostMapping("/api/budgetbook")
+//    public List<EntryCashFlowDTO> write(@RequestBody EntryCashFlowDTO entryDTO) {
+//        entryCashFlowRepository.save(EntryCashFlowConverter.fromDTO(entryDTO));
+//        return read();
+//    }
 
 
 

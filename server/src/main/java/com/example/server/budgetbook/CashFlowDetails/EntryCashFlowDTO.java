@@ -6,15 +6,20 @@ public class EntryCashFlowDTO {
     private double amount;
     private  String category;
 
-    public EntryCashFlowDTO(String name, double amount, String category) {
+
+    private boolean isDebit;
+
+    public EntryCashFlowDTO(String name, double amount, String category, boolean isDebit) {
         this.name = name;
         this.amount = amount;
         this.category = category;
+        this.isDebit = isDebit;
     }
 public  EntryCashFlowDTO(EntryCashFlow entryCashFlow){
         this.name =entryCashFlow.getName();
         this.amount= entryCashFlow.getAmount();
         this.category = entryCashFlow.getCategory();
+        this.isDebit = entryCashFlow.isDebit();
 }
     // GETTER AND SETTER
     public String getName() {
@@ -39,5 +44,12 @@ public  EntryCashFlowDTO(EntryCashFlow entryCashFlow){
 
     public void setCategory(String category) {
         this.category = category;
+    }
+    public boolean isDebit() {
+        return isDebit;
+    }
+
+    public void setDebit(boolean debit) {
+        isDebit = debit;
     }
 }

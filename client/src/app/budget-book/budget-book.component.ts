@@ -8,18 +8,18 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./budget-book.component.css']
 })
 export class BudgetBookComponent implements OnInit{
-  entries: Entry[] = [];
+  // entries: Entry[] = [];
+  //
+  // newEntry: Entry = {name:'', amount: 0, category:''};
 
-  newEntry: Entry = {name:'', amount: 0, category:''};
-
-  constructor(private  http: HttpClient) {
-  }
+  // constructor(private  http: HttpClient) {
+  // }
 
   ngOnInit(): void {
-    this.http.get<Entry[]>('/api/budgetbook').subscribe(e => this.entries = e);
+    // this.http.get<Entry[]>('/api/budgetbook').subscribe(e => this.entries = e);
   }
   save() {
-    this.http.post<Entry[]>('/api/budgetbook', this.newEntry).subscribe(e => this.entries = e);
+    // this.http.post<Entry[]>('/api/budgetbook', this.newEntry).subscribe(e => this.entries = e);
   }
 
 }
