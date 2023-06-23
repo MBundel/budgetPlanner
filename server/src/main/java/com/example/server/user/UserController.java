@@ -1,8 +1,6 @@
 package com.example.server.user;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,21 +23,30 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public RegistrationDTO register(@Valid @RequestBody RegistrationDTO registrationDTO, BindingResult bindingResult) {
+    public RegistrationDTO register(@Valid @RequestBody RegistrationDTO registrationDTO) {
+
+        if(registrationDTO.getUsername().equals("")) {
+            return new RegistrationDTO("This field must not be empty.", "", "", "");
+        }
 
         if(!registrationDTO.getPassword1().equals(registrationDTO.getPassword2())) {
-            bindingResult.addError(new FieldError("registrationDTO", "password2", "Passwords are not matching."));
-            return new RegistrationDTO("", "", "Passwort 2 stimmt nicht mit Passwort 1 überein.", "");
+            return new RegistrationDTO("", "", "The passwords do not match.", "");
         }
 
         if(userService.existsByUsername(registrationDTO.getUsername())) {
-            bindingResult.addError(new FieldError("registration", "username", "Username already in use."));
-            return new RegistrationDTO("Username schon vergeben", "", "", "");
+            return new RegistrationDTO("Username is already in use.", "", "", "");
         }
 
         if(userService.existsByEmail(registrationDTO.getEmail())) {
-            bindingResult.addError(new FieldError("registration", "email", "Email address already in use."));
-            return new RegistrationDTO("", "", "", "Email-Adresse schon in Benutzung.");
+            return new RegistrationDTO("", "", "", "Email address is already in use.");
+        }
+
+        if(!registrationDTO.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
+            return new RegistrationDTO("", "", "", "This is not a valid email address.");
+        }
+
+        if(!registrationDTO.getPassword1().matches("^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=])(?=\\S+$).{8,}$")) {
+            return new RegistrationDTO("", "", "", "This is not a valid password.");
         }
 
         User newUser = userService.addUser(new User(registrationDTO.getUsername(), registrationDTO.getPassword1(), registrationDTO.getEmail()));

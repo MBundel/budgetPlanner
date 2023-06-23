@@ -1,20 +1,9 @@
 package com.example.server.user;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 public class RegistrationDTO {
 
-    // TODO: Funktioniert Validator?
-    @NotEmpty
     private String username;
-
-    @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     private String email;
-
-    //TODO: Doppelslash falsch?
-    @Pattern(regexp = "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=])(?=\\S+$).{8,}$", message = "Password must be at least 8 " +
-            "characters long, contain at least one uppercase letter, one lowercase letter, one digit and one special character.")
     private String password1;
     private String password2;
 
