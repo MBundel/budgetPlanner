@@ -20,24 +20,23 @@ public class BudgetBookController {
         this.entryCashFlowRepository = entryCashFlowRepository;
     }
 
-//    @GetMapping("/api/budgetbook")
-//    public List<EntryCashFlowDTO> read() {
-//        List<EntryCashFlowDTO> response = new LinkedList<>();
-//
-//        return entryCashFlowRepository
-//                .findAllByOrderByCreatedAtDesc()
-//                .stream()
-//                .map(EntryCashFlowConverter::toDTO)
-//                .collect(Collectors.toList());
-//
-//    }
-    @GetMapping("/api/budgetbook")
-    public Map<String, List<EntryCashFlow>> getEntriesByCategory() {
-        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
-        Map<String, List<EntryCashFlow>> entriesByCategory = entries.stream()
-                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
 
-        return entriesByCategory;
+    @GetMapping("/api/budgetbook/isDebit")
+    public Map<String, List<EntryCashFlow>> getDebitEntriesByCategory() {
+        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
+
+        return entries.stream()
+                .filter(EntryCashFlow::isDebit)
+                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
+    }
+
+    @GetMapping("/api/budgetbook/isNotDebit")
+    public Map<String, List<EntryCashFlow>> getNonDebitEntriesByCategory() {
+        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
+
+        return entries.stream()
+                .filter(entry -> !entry.isDebit())
+                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
     }
 
     @PostMapping("/api/budgetbook")
@@ -49,11 +48,7 @@ public class BudgetBookController {
                 .collect(Collectors.toList());
     }
 
-//    @PostMapping("/api/budgetbook")
-//    public List<EntryCashFlowDTO> write(@RequestBody EntryCashFlowDTO entryDTO) {
-//        entryCashFlowRepository.save(EntryCashFlowConverter.fromDTO(entryDTO));
-//        return read();
-//    }
+
 
 
 

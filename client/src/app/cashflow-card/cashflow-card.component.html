@@ -1,13 +1,15 @@
 <div class="component-container">
 
   <div>
-  hard Spaß
-    <tr *ngFor="let entry of entries">
-  {{entry}}
+    {{ entryList?.key }}
 
+
+    <div *ngFor="let entry of entryList?.value">
       <app-cashflow-detail [entry]="entry"></app-cashflow-detail>
+    </div>
 
-    </tr>
-      <app-button></app-button>
+
+
+    <app-button></app-button>
   </div>
 </div>

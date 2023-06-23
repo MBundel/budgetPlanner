@@ -1,32 +1,30 @@
 <div class="container">
   <div>
     <div class="header">
-      <div>Haushaltsbuch </div>
-      <!-- {{ sum }} --> € Dummy für sum </div>
+      <div>Haushaltsbuch</div>
+      <!-- {{ sum }} --> € Dummy für sum
+    </div>
 
   </div>
 
   <div class="lowercontainer">
-      <div class="income">
-        <div>Einkommen</div>
-        <!-- {{ income.sum }} --> € Dummy für income.sum
-      <ul>
-   <!--     <li *ngFor="let item of income.items"> <app-listTag/> </li> -->
-      </ul>
-        <app-cashflow-card></app-cashflow-card>
+    <!--    -->
+    <div class="income">
+      <div>Einkommen</div>
+      <div *ngFor="let entryList of debitEntriesByCategory | keyvalue">
+        <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
+      </div>
+
 
       <app-button></app-button>
+    </div>
+    <!--    -->
+    <div class="costs">
+      <div> Ausgaben</div>
+      <div *ngFor="let entryList of nonDebitEntriesByCategory | keyvalue">
+        <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
-      <div class="costs">
-        <div> Ausgaben </div>
-        <!-- {{ costs.sum }} -->€ Dummy für costs.sum
-      <ul>
-    <!--    <li *ngFor="let item of costs.items"> -->Hier werden die costs aufgelistet. <!--<app-listTag/> </li> -->
-        <app-cashflow-card></app-cashflow-card>
-
-      </ul>
-
       <app-button></app-button>
-      </div>
+    </div>
   </div>
 </div>

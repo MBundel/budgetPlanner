@@ -8,6 +8,8 @@ import { CashflowCardComponent} from "./cashflow-card/cashflow-card.component";
 import { CashflowDetailComponent } from './cashflow-detail/cashflow-detail.component';
 import { ButtonComponent } from './button/button.component';
 import { HttpClientModule } from '@angular/common/http';
+import {FilterByDebitPipe} from "./helper/FilterByDebitPipe";
+
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     CashflowCardComponent,
     CashflowDetailComponent,
     ButtonComponent,
+    FilterByDebitPipe
 
 
   ],
