@@ -44,10 +44,13 @@ public class UserController {
         if(!registrationDTO.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
             return new RegistrationDTO("", "", "", "This is not a valid email address.");
         }
-
-        if(!registrationDTO.getPassword1().matches("^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=])(?=\\S+$).{8,}$")) {
+        /* TODO: Fehler beheben!
+        // "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=])(?=\\S+$).{8,}$
+        if(!registrationDTO.getPassword1().matches("^(?=.[a-z])(?=.[A-Z])(?=.\\d)(?=.[@$!%?&])[A-Za-z\\d@$!%?&]{8,}$")) {
             return new RegistrationDTO("", "", "", "This is not a valid password.");
         }
+
+         */
 
         User newUser = userService.addUser(new User(registrationDTO.getUsername(), registrationDTO.getPassword1(), registrationDTO.getEmail()));
         return new RegistrationDTO(newUser.getUsername(), newUser.getPassword(), newUser.getEmail(), newUser.getRole());
