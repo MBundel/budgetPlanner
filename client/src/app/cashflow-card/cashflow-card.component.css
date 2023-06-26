@@ -1,8 +1,20 @@
 .component-container {
-  background-color: lightgreen;
-  padding: 2px;
-  width: 50%;
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  width: 75%;
   margin: 10px;
+  font-size: large;
+  transform: scale(1.0);
+  transition-duration: 200ms;
+  border: #982649 1px solid;
+  border-radius: 10px;
+}
+.component-container:hover{
+  background-image: radial-gradient(circle at center, #AA3357, #982649);
+  color: black;
+  transform: scale(1.05);
+  transition-duration: 200ms;
 }
 
 .button-container {

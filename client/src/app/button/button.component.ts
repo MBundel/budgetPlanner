@@ -1,15 +1,32 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {MatIconRegistry} from "@angular/material/icon";
+import {DomSanitizer} from "@angular/platform-browser";
+
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css']
 })
-export class ButtonComponent implements OnInit{
+export class ButtonComponent implements OnInit {
+  title = 'custom icon';
+
+  // constructor (
+  //   private matIconRegistry: MatIconRegistry,
+  //   private domSanitizer: DomSanitizer
+  // ) {
+  //   this.matIconRegistry.addSvgIcon(
+  //     'edit',
+  //     this.domSanitizer.bypassSecurityTrustResourceUrl('../../assets/svg/edit.svg')
+  //   )
+  //
+  // }
+
+
   ngOnInit(): void {
   }
-
 }
+
 /*
 @Component({
   selector: 'app-button',
@@ -30,4 +47,5 @@ export class ButtonComponent {
     this.buttonClick.emit();
   }
 }
- */
+*/
+

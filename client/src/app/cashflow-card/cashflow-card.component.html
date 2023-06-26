@@ -1,15 +1,11 @@
-<div class="component-container">
-
-  <div>
+<div class="component-container" (click)="toggleEntryList()">
+  <div >
     {{ entryList?.key }}
-
-
-    <div *ngFor="let entry of entryList?.value">
-      <app-cashflow-detail [entry]="entry"></app-cashflow-detail>
+    <div *ngIf="showEntryList">
+      <div *ngFor="let entry of entryList?.value">
+        <app-cashflow-detail [entry]="entry"></app-cashflow-detail>
+      </div>
+      <app-button></app-button>
     </div>
-
-
-
-    <app-button></app-button>
   </div>
 </div>

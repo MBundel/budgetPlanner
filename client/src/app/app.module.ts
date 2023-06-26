@@ -13,6 +13,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

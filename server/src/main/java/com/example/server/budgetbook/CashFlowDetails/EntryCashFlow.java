@@ -36,7 +36,10 @@ public class EntryCashFlow {
         this.category = category;
         this.createdAt = Instant.now();
         this.isDebit = isDebit;
+
     }
+
+
 
     public String getName() {
         return name;

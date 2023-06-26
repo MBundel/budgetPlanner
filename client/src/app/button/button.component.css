@@ -4,3 +4,8 @@
 .large{}
 .fancy{}
 .default{}
+.test{
+  background-color: transparent;
+  color: #982649;
+  border-radius: 10px;
+}

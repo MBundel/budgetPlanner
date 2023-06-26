@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Entry } from "./budgetBookInterfaces";
 import { HttpClient } from "@angular/common/http";
 
+
 @Component({
   selector: 'app-budget-book',
   templateUrl: './budget-book.component.html',
@@ -13,11 +14,13 @@ export class BudgetBookComponent implements OnInit {
   entriesByCategory: Map<string, Entry[]> = new Map<string, Entry[]>();
   newEntry: Entry = { name: '', amount: 0, category: '', isDebit: false };
 
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.http.get<Map<string, Entry[]>>('/api/budgetbook/isDebit').subscribe(debitEntriesByCategory => {
       this.debitEntriesByCategory = debitEntriesByCategory;
+
     });
 
     this.http.get<Map<string, Entry[]>>('/api/budgetbook/isNotDebit').subscribe(nonDebitEntriesByCategory => {

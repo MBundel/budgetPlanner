@@ -1,13 +1,19 @@
-.container {
-  flex-direction: column;
-  border-style: solid;
-  border-width: 1px;
 
+
+.container1 {
+
+  padding: 10px;
+  border: solid 5px #982649;
+  border-radius: 20px;
+  width: 80%;
+  margin-left: 10%;
 }
+
 .header {
-  border-style: solid;
-  border-width: 1px;
-  background-color: indianred;
+  color: #B7D5D4;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .lowercontainer {
@@ -15,16 +21,20 @@
   padding: 0;
   display: flex;
 }
-.income {
-  border-style: solid;
-  border-width: 1px;
-  background-color: slategrey;
+
+.container2 {
+
+ margin: 5px;
   width: 50%;
+  padding: 10px;
+  border: #982649 2px solid;
+  border-radius: 20px;
+  color: white;
 }
 
 .costs {
-  border-style: solid;
-  border-width: 1px;
-  background-color: burlywood;
+
+  background-color: #4F646F;
   width: 50%;
+  padding: 10px;
 }
