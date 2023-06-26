@@ -9,7 +9,8 @@
     </table>
   </div>
   <div class="button-container">
-    <app-button></app-button>
-    <app-button></app-button>
+    <app-button [id]="entry.id"  [name]="'edit'"></app-button>
+
+    <app-button  [id]="entry.id" [name]="'delete'"></app-button>
   </div>
 </div>

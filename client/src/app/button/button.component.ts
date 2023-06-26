@@ -1,51 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-import {MatIconRegistry} from "@angular/material/icon";
-import {DomSanitizer} from "@angular/platform-browser";
-
+import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import {CalculateService} from "../calculate.service";
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css']
+  styleUrls: ['./button.component.css'],
+  providers: [CalculateService]
 })
 export class ButtonComponent implements OnInit {
-  title = 'custom icon';
+  @Input() name: string = 'NoUse';
+  @Input() id: number = 0;
 
-  // constructor (
-  //   private matIconRegistry: MatIconRegistry,
-  //   private domSanitizer: DomSanitizer
-  // ) {
-  //   this.matIconRegistry.addSvgIcon(
-  //     'edit',
-  //     this.domSanitizer.bypassSecurityTrustResourceUrl('../../assets/svg/edit.svg')
-  //   )
-  //
-  // }
+  private baseUrl = '/api/budgetbook';
 
+  constructor(private http: HttpClient, private calcService: CalculateService) {
 
-  ngOnInit(): void {
+  }
+
+  ngOnInit(): void {}
+
+  handleClick(entryId: number): void {
+    if (this.name === 'delete') {
+      this.deleteEntry(entryId).subscribe(
+        () => {
+          // Erfolgreiche Löschung - Lade die Daten neu
+          this.loadData();
+        },
+        error => {
+          // Fehler bei der Löschung - Behandle den Fehler entsprechend
+        }
+      );
+    }
+  }
+
+  deleteEntry(id: number): Observable<any> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete(url);
+  }
+
+  loadData(): void {
+   // this.calcService.fetchEntries();
+   window.location.reload();
   }
 }
-
-/*
-@Component({
-  selector: 'app-button',
-  template: `
-    <button [ngClass]="getButtonClass()" (click)="handleButtonClick()">{{ buttonText }}</button>
-  `
-})
-export class ButtonComponent {
-  @Input() buttonType: ButtonType = ButtonType.Primary;
-  @Input() buttonText: string = 'Click me';
-  @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
-
-  getButtonClass(): string {
-    return `btn btn-${this.buttonType}`;
-  }
-
-  handleButtonClick(): void {
-    this.buttonClick.emit();
-  }
-}
-*/
-
