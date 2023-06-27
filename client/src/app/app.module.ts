@@ -8,10 +8,11 @@ import { BudgetBookComponent } from './budget-book/budget-book.component';
 import { CashflowCardComponent} from "./cashflow-card/cashflow-card.component";
 import { CashflowDetailComponent } from './cashflow-detail/cashflow-detail.component';
 import { ButtonComponent } from './button/button.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, HttpErrorResponse} from '@angular/common/http';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { LoginComponent } from './login/login.component';
 import { ServicesComponent } from './services/services.component';
+import { SuccessComponent } from './user-registration/success/success.component';
 
 
 
@@ -27,6 +28,7 @@ import { ServicesComponent } from './services/services.component';
     UserRegistrationComponent,
     LoginComponent,
     ServicesComponent,
+    SuccessComponent
 
 
   ],

@@ -31,7 +31,7 @@ public class UserController {
 
         if(registrationDTO.getUsername().equals("")) {
             response.setUsername("This field must not be empty.");
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
 
         if(!registrationDTO.getPassword1().equals(registrationDTO.getPassword2())) {
@@ -40,33 +40,28 @@ public class UserController {
         }
 
         if(userService.existsByUsername(registrationDTO.getUsername())) {
-            // return new RegistrationDTO("Username is already in use.", "", "", "");
             response.setUsername("Username is already in use.");
-            return new ResponseEntity<>(response, HttpStatus.IM_USED);
+            return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
         }
 
         if(userService.existsByEmail(registrationDTO.getEmail())) {
-            // return new RegistrationDTO("", "", "", "Email address is already in use.");
             response.setEmail("Email address is already in use.");
-            return new ResponseEntity<>(response, HttpStatus.IM_USED);
+            return new ResponseEntity<>(response, HttpStatus.CONFLICT);
         }
 
         if(!registrationDTO.getEmail().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
-            // return new RegistrationDTO("", "", "", "This is not a valid email address.");
             response.setEmail("This is not a valid email address.");
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(response, HttpStatus.METHOD_NOT_ALLOWED);
         }
         // TODO: Fehler beheben!
         // "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=])(?=\\S+$).{8,}$
         // if(!registrationDTO.getPassword1().matches("^(?=.[a-z])(?=.[A-Z])(?=.\\d)(?=.[@$!%?&])[A-Za-z\\d@$!%?&]{8,}$")) {
            if(registrationDTO.getPassword1().length() < 8) {
-            // return new RegistrationDTO("", "", "", "This is not a valid password.");
             response.setPassword1("Your password must have at least 8 characters.");
-            return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(response, HttpStatus.LENGTH_REQUIRED);
         }
 
-        User newUser = userService.addUser(new User(registrationDTO.getUsername(), registrationDTO.getPassword1(), registrationDTO.getEmail()));
-        // return new RegistrationDTO(newUser.getUsername(), newUser.getPassword(), newUser.getEmail(), newUser.getRole());
+        userService.addUser(new User(registrationDTO.getUsername(), registrationDTO.getPassword1(), registrationDTO.getEmail()));
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

@@ -1,31 +1,85 @@
-import { Entry } from "./budget-book/budgetBookInterfaces";
-import { Injectable, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import {Injectable, OnInit} from "@angular/core";
+import {Entry} from "./budget-book/budgetBookInterfaces";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CalculateService implements OnInit {
-  debitEntriesByCategory: Map<string, Entry[]> = new Map<string, Entry[]>();
-  categorySums?: Map<string, number>;
+export class CalculateService {
+  entriesByCategory: Map<string, Entry[]> = new Map<string, Entry[]>();
+  entry?: Entry;
+  isDebitMap: Map<string, Entry[]> = new Map<string, Entry[]>();
+  notDebitMap: Map<string, Entry[]> = new Map<string, Entry[]>();
+  allEntries: Entry[] = [];
+  sum: number = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.fetchEntries();
 
-  ngOnInit(): void {
-    this.http.get<Map<string, Entry[]>>('/api/budgetbook/isDebit').subscribe(debitEntriesByCategory => {
-      this.debitEntriesByCategory = debitEntriesByCategory;
-      this.calculateDebits(); // Aufruf der Methode innerhalb des Subscribe-Blocks
+  }
+
+  fetchEntries(): void {
+    console.log("api/budgetbook called");
+    this.http.get<Entry[]>('/api/budgetbook').subscribe(allEntries => {
+      this.allEntries = allEntries;
+      console.log("notDebitmap: " + this.notDebitMap)
+      this.sortingByCategory();
+
     });
   }
 
-  calculateDebits(): void {
-    const categorySums: Map<string, number> = new Map<string, number>();
+  sortingByCategory(): void {
+    this.entriesByCategory = new Map<string, Entry[]>();
 
-    this.debitEntriesByCategory.forEach((entries: Entry[], category: string) => {
-      const sum = entries.reduce((total: number, entry: Entry) => total + entry.amount, 0);
-      categorySums.set(category, sum);
+
+    this.allEntries.forEach(entry => {
+      const category = entry.category;
+
+
+      if (this.entriesByCategory.has(category)) {
+        const entries = this.entriesByCategory.get(category);
+        if (entries) {
+          entries.push(entry);
+        }
+      } else {
+        this.entriesByCategory.set(category, [entry]);
+      }
     });
-
-    console.log(categorySums); // Ausgabe der Kategoriesummen (optional)
+    this.splittingByIsDebit();
   }
+
+  splittingByIsDebit(): void {
+
+
+    this.entriesByCategory.forEach((entries: Entry[], category: string) => {
+      const isDebitEntries: Entry[] = [];
+      const notDebitEntries: Entry[] = [];
+
+      entries.forEach(entry => {
+        if (entry.debit) {
+          isDebitEntries.push(entry);
+          this.sum += entry.amount;
+        } else {
+          notDebitEntries.push(entry);
+          this.sum -= entry.amount;
+        }
+        console.log(this.sum + " " + entry.name)
+      });
+
+      if (isDebitEntries.length > 0) {
+        this.isDebitMap.set(category, isDebitEntries);
+      }
+
+      if (notDebitEntries.length > 0) {
+        this.notDebitMap.set(category, notDebitEntries);
+      }
+    });
+    console.log("notDebitmap: " + this.notDebitMap)
+
+  }
+
+
+
+
+
 }

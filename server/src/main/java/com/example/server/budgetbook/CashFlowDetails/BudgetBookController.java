@@ -1,12 +1,8 @@
 package com.example.server.budgetbook.CashFlowDetails;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,22 +17,28 @@ public class BudgetBookController {
     }
 
 
-    @GetMapping("/api/budgetbook/isDebit")
-    public Map<String, List<EntryCashFlow>> getDebitEntriesByCategory() {
-        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
+//    @GetMapping("/api/budgetbook/isDebit")
+//    public Map<String, List<EntryCashFlow>> getDebitEntriesByCategory() {
+//        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
+//
+//        return entries.stream()
+//                .filter(EntryCashFlow::isDebit)
+//                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
+//    }
+//
+//    @GetMapping("/api/budgetbook/isNotDebit")
+//    public Map<String, List<EntryCashFlow>> getNonDebitEntriesByCategory() {
+//        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
+//
+//        return entries.stream()
+//                .filter(entry -> !entry.isDebit())
 
-        return entries.stream()
-                .filter(EntryCashFlow::isDebit)
-                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
-    }
+//                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
+//    }
+    @GetMapping("/api/budgetbook")
+    public List<EntryCashFlow> findAllByOrderByCreatedAtDesc() {
 
-    @GetMapping("/api/budgetbook/isNotDebit")
-    public Map<String, List<EntryCashFlow>> getNonDebitEntriesByCategory() {
-        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
-
-        return entries.stream()
-                .filter(entry -> !entry.isDebit())
-                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
+        return entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
     }
 
     @PostMapping("/api/budgetbook")
@@ -47,6 +49,36 @@ public class BudgetBookController {
                 .map(EntryCashFlowConverter::toDTO)
                 .collect(Collectors.toList());
     }
+    @PutMapping("/api/budgetbook/{id}")
+    public List<EntryCashFlowDTO> updateEntry(@PathVariable("id") Integer id, @RequestBody EntryCashFlowDTO entryDTO) {
+        EntryCashFlow existingEntry = entryCashFlowRepository.findById(id)
+                .orElseThrow();
+        existingEntry.setName(entryDTO.getName());
+        existingEntry.setAmount(entryDTO.getAmount());
+        existingEntry.setCategory(entryDTO.getCategory());
+        existingEntry.setDebit(entryDTO.isDebit());
+        // ...
+
+        entryCashFlowRepository.save(existingEntry);
+
+        return entryCashFlowRepository.findAllByOrderByCreatedAtDesc().stream()
+                .map(EntryCashFlowConverter::toDTO)
+                .collect(Collectors.toList());
+    }
+    @DeleteMapping("/api/budgetbook/{id}")
+    public List<EntryCashFlowDTO> deleteEntry(@PathVariable("id") Integer id) {
+        EntryCashFlow existingEntry = entryCashFlowRepository.findById(id)
+                .orElseThrow();
+
+        entryCashFlowRepository.delete(existingEntry);
+
+        return entryCashFlowRepository.findAllByOrderByCreatedAtDesc().stream()
+                .map(EntryCashFlowConverter::toDTO)
+                .collect(Collectors.toList());
+    }
+
+
+
 
 
 

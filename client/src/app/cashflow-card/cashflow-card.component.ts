@@ -6,14 +6,13 @@ import { Entry, EntryList } from "../budget-book/budgetBookInterfaces";
   templateUrl: './cashflow-card.component.html',
   styleUrls: ['./cashflow-card.component.css']
 })
-export class CashflowCardComponent implements OnInit {
+export class CashflowCardComponent {
   @Input() entryList?: EntryList;
   showEntryList: boolean = false;
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+
 
   toggleEntryList() {
     this.showEntryList = !this.showEntryList;

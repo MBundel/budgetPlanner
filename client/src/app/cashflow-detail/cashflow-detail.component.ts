@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Entry } from "../budget-book/budgetBookInterfaces";
 
 @Component({
@@ -6,14 +6,12 @@ import { Entry } from "../budget-book/budgetBookInterfaces";
   templateUrl: './cashflow-detail.component.html',
   styleUrls: ['./cashflow-detail.component.css']
 })
-export class CashflowDetailComponent implements OnInit {
+export class CashflowDetailComponent {
   @Input() entry: Entry;
 
   constructor() {
-    this.entry = { name: '', amount: 0, category: '', isDebit: false };
+    this.entry = { name: '', amount: 0, category: '', debit: false , id:0};
   }
 
-  ngOnInit(): void {
-    // Initialisierungscode hier
-  }
+
 }

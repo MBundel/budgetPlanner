@@ -2,8 +2,7 @@
   <div>
     <div class="header">
       <h3>BUDGETBOOK</h3>
-      <!-- {{ sum }} --> € Dummy für sum
-
+     <h2> {{getSum()}}€</h2>
 
     </div>
 
@@ -13,12 +12,13 @@
     <!--    -->
     <div class="container2">
       <div>Einkommen</div>
+
       <div *ngFor="let entryList of debitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
 
 
-      <app-button></app-button>
+      <app-button [debit]="true" [name]="'add'"></app-button>
     </div>
     <!--    -->
     <div class="container2">
@@ -26,7 +26,7 @@
       <div *ngFor="let entryList of nonDebitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
-      <app-button></app-button>
+      <app-button [name]="'add'"></app-button>
     </div>
   </div>
 </div>
