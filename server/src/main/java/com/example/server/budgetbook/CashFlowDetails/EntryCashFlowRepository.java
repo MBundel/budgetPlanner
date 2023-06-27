@@ -1,6 +1,5 @@
 package com.example.server.budgetbook.CashFlowDetails;
 
-import com.example.server.budgetbook.CashFlowDetails.EntryCashFlow;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.ArrayList;
