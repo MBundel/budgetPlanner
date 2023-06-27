@@ -57,7 +57,7 @@ a {
 
 .container {
   background: linear-gradient(to  top ,#A33959 30%, #190637 70%, #190637 100%  );
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   margin: 0;

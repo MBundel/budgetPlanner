@@ -16,9 +16,17 @@
       <div *ngFor="let entryList of debitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
+      <div *ngIf="showNewDebit">
+        <app-cashflow-detail
+                              [debit] = true >
+
+        </app-cashflow-detail>
+      </div>
 
 
-      <app-button [debit]="true" [btnName]="'add'"></app-button>
+      <app-button [btnName]="'add'"
+                  (click)="showNewDebit= true"
+      ></app-button>
     </div>
     <!--    -->
     <div class="container2">
@@ -26,7 +34,15 @@
       <div *ngFor="let entryList of nonDebitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
-      <app-button [btnName]="'add'"></app-button>
+      <div *ngIf="showNewCredit">
+        <app-cashflow-detail
+          [debit] = false >
+
+        </app-cashflow-detail>
+      </div>
+      <app-button [btnName]="'add'"
+                  (click)="showNewCredit= true"
+      ></app-button>
     </div>
   </div>
 </div>

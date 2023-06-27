@@ -19,10 +19,10 @@ export class CalculateService {
   }
 
   fetchEntries(): void {
-    console.log("api/budgetbook called");
+    // console.log("api/budgetbook called");
     this.http.get<Entry[]>('/api/budgetbook').subscribe(allEntries => {
       this.allEntries = allEntries;
-      console.log("notDebitmap: " + this.notDebitMap)
+      // console.log("notDebitmap: " + this.notDebitMap)
       this.sortingByCategory();
 
     });
@@ -63,7 +63,7 @@ export class CalculateService {
           notDebitEntries.push(entry);
           this.sum -= entry.amount;
         }
-        console.log(this.sum + " " + entry.name)
+        // console.log(this.sum + " " + entry.name)
       });
 
       if (isDebitEntries.length > 0) {
@@ -74,7 +74,7 @@ export class CalculateService {
         this.notDebitMap.set(category, notDebitEntries);
       }
     });
-    console.log("notDebitmap: " + this.notDebitMap)
+    // console.log("notDebitmap: " + this.notDebitMap)
 
   }
 

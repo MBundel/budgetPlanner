@@ -15,6 +15,8 @@ export class BudgetBookComponent implements OnInit {
   entriesByCategory: Map<string, Entry[]> = new Map<string, Entry[]>();
   newEntry: Entry = { name: '', amount: 0, category: '', debit: false, id: 0 };
   sum: number = 0;
+  showNewDebit: boolean = false;
+  showNewCredit: boolean = false;
 
   constructor(private http: HttpClient, private calcService: CalculateService) {
     this.entriesByCategory = this.calcService.entriesByCategory;

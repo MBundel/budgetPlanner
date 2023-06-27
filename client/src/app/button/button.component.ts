@@ -51,9 +51,11 @@ export class ButtonComponent implements OnInit {
       if (entryId === 0) {
         if (this.entry) {
           this.entry.category = this.category;
+          this.entry.debit = this.debit;
           this.postEntry(this.entry).subscribe(() => {
               this.loadData();
             },
+
             error => {
               console.log("error");
             });

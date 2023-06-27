@@ -7,8 +7,19 @@
 
       </tr>
       <tr *ngIf="isEditing">
-        <td><input type="text" [(ngModel)]="entry.name"></td>
-        <td><input type="text" [(ngModel)]="entry.amount"></td>
+        <td>
+          <label>Name:</label>
+          <input type="text" [(ngModel)]="entry.name">
+        </td>
+        <td>
+          <label>Amount:</label>
+          <input type="text" [(ngModel)]="entry.amount">
+        </td>
+        <td>
+          <label>Category:</label>
+          <input type="text" [(ngModel)]="entry.category">
+        </td>
+
 
       </tr>
     </table>
@@ -17,6 +28,8 @@
     <app-button
                 [id]="entry.id"
                 [entry] = entry
+                [category]="category ?? entry.category"
+                [debit]="debit ?? entry.debit"
                 [btnName]=" isEditing ? 'save' : 'edit'"
                 (click)="isEditing = !isEditing"
 
