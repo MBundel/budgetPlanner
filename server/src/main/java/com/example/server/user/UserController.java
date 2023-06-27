@@ -71,7 +71,7 @@ public class UserController {
         boolean isValid = userService.isValidUser(user.getUsername(), user.getPassword());
         LoginDTO userId;
         if (isValid) {
-            userId = new LoginDTO(userRepository.findByUsernameIgnoreCase(user.getUsername()).getId());
+            userId = new LoginDTO(userRepository.findByUsername(user.getUsername()).getId());
             return userId;
         } else
             userId = new LoginDTO(0L);

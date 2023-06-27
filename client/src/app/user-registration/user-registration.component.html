@@ -10,13 +10,13 @@
               <form (submit)="save()">
                 <div class="form-outline mb-4">
                   <input type="text" id="form3Example1cg" name="username" class="form-control form-control-lg" [(ngModel)]="newUser.username"/>
-                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                  <label class="form-label" for="form3Example1cg">Your name</label>
                   <div *ngIf="newUser.usernameError" class="text-danger">{{ newUser.usernameError }}</div>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input type="email" id="form3Example3cg" name="email" class="form-control form-control-lg" [(ngModel)]="newUser.email"/>
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <label class="form-label" for="form3Example3cg">Your email address</label>
                   <div *ngIf="newUser.emailError" class="text-danger">{{ newUser.emailError }}</div>
                 </div>
 
@@ -34,7 +34,7 @@
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
                   <label class="form-check-label" for="form2Example3cg">
-                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    I agree to all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
                   </label>
                 </div>
 
