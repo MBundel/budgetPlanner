@@ -1,19 +1,15 @@
-import {Injectable, OnInit} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SessionServiceService implements OnInit{
+export class SessionService {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   isLoggedIn(): boolean {
-    return sessionStorage.getItem('username') !== null;
+    return sessionStorage.getItem("username") != null;
   }
-
   setSessionStorage(username: string) {
     sessionStorage.setItem('username', username);
   }
@@ -21,4 +17,5 @@ export class SessionServiceService implements OnInit{
   deleteSessionStorage() {
     sessionStorage.removeItem('username');
   }
+
 }

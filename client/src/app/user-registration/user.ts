@@ -1,8 +1,8 @@
 export interface User {
   username: string;
-  email: string;
+  email?: string;
   password1: string;
-  password2: string;
+  password2?: string;
 
   usernameError?: string;
   emailError?: string;

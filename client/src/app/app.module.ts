@@ -11,8 +11,9 @@ import { ButtonComponent } from './button/button.component';
 import {HttpClientModule, HttpErrorResponse} from '@angular/common/http';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { LoginComponent } from './login/login.component';
-import { ServicesComponent } from './services/services.component';
 import { SuccessComponent } from './user-registration/success/success.component';
+import { SessionComponent } from './session/session.component';
+import {SessionService} from "./session/session.service";
 
 
 
@@ -27,11 +28,10 @@ import { SuccessComponent } from './user-registration/success/success.component'
     ButtonComponent,
     UserRegistrationComponent,
     LoginComponent,
-    ServicesComponent,
-    SuccessComponent
-
-
+    SuccessComponent,
+    SessionComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,7 +40,9 @@ import { SuccessComponent } from './user-registration/success/success.component'
 
 
   ],
-  providers: [],
+  providers: [
+    SessionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,8 +35,8 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public boolean existsByUsername(String userName) {
-             User user = userRepository.findUserByUsername(userName).orElse(null);
+    public boolean existsByUsername(String username) {
+             User user = userRepository.findUserByUsername(username).orElse(null);
              if(user != null) {
                  return true;
              }
@@ -48,7 +48,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
-
+    public User findUserByUsername(String username) {
+        return userRepository.findUserByUsername(username).orElse(null);
+    }
 
     public boolean existsByEmail(String email) {
         User user = userRepository.findUserByEmail(email).orElse(null);

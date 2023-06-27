@@ -7,6 +7,7 @@ import {ButtonComponent} from "./button/button.component";
 import {UserRegistrationComponent} from "./user-registration/user-registration.component";
 import {SuccessComponent} from "./user-registration/success/success.component";
 import {LoginComponent} from "./login/login.component";
+import {SessionComponent} from "./session/session.component";
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:"button", component:ButtonComponent},
   {path:"registration", component: UserRegistrationComponent},
   {path:"success", component: SuccessComponent},
-  {path:"login", component: LoginComponent}
+  {path:"login", component: LoginComponent},
+  {path:"session", component: SessionComponent}
 ];
 
 @NgModule({

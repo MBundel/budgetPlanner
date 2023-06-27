@@ -1,11 +1,11 @@
-<h1>LOGIN!</h1>
+<h1>Hier kommt ein kurzer Begrüßungstext hin!</h1>
 <div *ngIf="!sessionService.isLoggedIn()">
   <div>
     <form (ngSubmit)="login()">
       <label for="username">Username:</label>
       <input type="text" id="username" [(ngModel)]="user.username" name="username" required>
-      <label for="password">Password:</label>
-      <input type="text" id="password" [(ngModel)]="user.password1" name="password" required>
+      <label for="password1">Password:</label>
+      <input type="text" id="password1" [(ngModel)]="user.password1" name="password1" required>
       <button type="submit">Login</button>
     </form>
     <div>{{errorMessage}}</div>
@@ -13,8 +13,7 @@
 </div>
 
 <div *ngIf="sessionService.isLoggedIn()">
-  <p>Welcome, {{response?.userId}}!</p>
-  <button (click)="logout()">Logout</button>
+  <p>Welcome {{response}}!</p>
   <hr>
   <app-budget-book></app-budget-book>
 </div>

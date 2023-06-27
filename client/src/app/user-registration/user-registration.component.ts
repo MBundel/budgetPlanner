@@ -25,24 +25,11 @@ export class UserRegistrationComponent {
     this.http.post('/api/registration', this.newUser, { observe: 'response' }).subscribe(
       (response: HttpResponse<any>) => {
         console.log('Benutzer erfolgreich registriert', response);
-        /*this.newUser = {
-          username: '',
-          email: '',
-          password1: '',
-          password2: ''
-        };
-         */
         this.router.navigate(['/success']);
       },
       (error: HttpErrorResponse) => {
         console.log('Fehler bei der Benutzerregistrierung', error);
         if (error.status === 400) {
-          /*const errors = error.error;
-          this.newUser.usernameError = errors.username;
-          this.newUser.emailError = errors.email;
-          this.newUser.password1Error = errors.password1;
-          this.newUser.password2Error = errors.password2;
-           */
           this.newUser.usernameError = 'The field USERNAME must not be empty.';
         } else if (error.status === 403) {
           this.newUser.usernameError = 'Username is already in use.';

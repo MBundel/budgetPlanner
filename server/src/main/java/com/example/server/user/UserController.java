@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<RegistrationDTO> register(@Valid @RequestBody RegistrationDTO registrationDTO) {
+    public ResponseEntity<RegistrationDTO> register(@RequestBody RegistrationDTO registrationDTO) {
         RegistrationDTO response = new RegistrationDTO("", "", "", "");
 
         if(registrationDTO.getUsername().equals("")) {
@@ -67,21 +67,36 @@ public class UserController {
 
     //Login
     @PostMapping("/login")
-    public LoginDTO login(@RequestBody User user) {
+    public ResponseEntity<LoginDTO> login(@RequestBody User user) {
         boolean isValid = userService.isValidUser(user.getUsername(), user.getPassword());
         LoginDTO userId;
+
+        // Momentan wird immer nur BAD_REQUEST zurückgegeben:
         if (isValid) {
             userId = new LoginDTO(userRepository.findByUsername(user.getUsername()).getId());
-            return userId;
-        } else
+            return new ResponseEntity<>(userId, HttpStatus.OK);
+        } else {
             userId = new LoginDTO(0L);
-            return userId;
+            return new ResponseEntity<>(userId, HttpStatus.BAD_REQUEST);
+        }
+
+        /* Login erzwingen:
+        userId = new LoginDTO(29L);
+        return new ResponseEntity<>(userId, HttpStatus.OK);
+         */
     }
 
 
     // Für Rest Client und Admin:
     @GetMapping("/all")
     public List<User> getAllUsers() {
-         return userService.findAllUsers();
+        return userService.findAllUsers();
     }
+
+    @GetMapping("/find/{username}")
+    public ResponseEntity<User> findUserByUsername(@PathVariable String username) {
+        User user = userService.findUserByUsername(username);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 }
