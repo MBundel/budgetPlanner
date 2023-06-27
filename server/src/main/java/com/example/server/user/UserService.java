@@ -60,7 +60,7 @@ public class UserService {
 
     //Login
     public boolean isValidUser(String username, String password) {
-        User user = userRepository.findByUsernameIgnoreCase(username);
+        User user = userRepository.findByUsername(username);
         return user != null && user.getPassword().equals(password);
     }
 

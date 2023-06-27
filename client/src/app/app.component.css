@@ -4,18 +4,13 @@
 
 }
 
-
-
 body {
 
-
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*border: 0;*/
-  /*width: 100%;*/
-  /*height: 100%;*/
-  /*background: linear-gradient(to top, #A33959 30%, #190637 70%, #190637 100%);*/
-  /*position: relative;*/
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
 }
 
 a {

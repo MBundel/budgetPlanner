@@ -6,6 +6,7 @@ import {CashflowDetailComponent} from "./cashflow-detail/cashflow-detail.compone
 import {ButtonComponent} from "./button/button.component";
 import {UserRegistrationComponent} from "./user-registration/user-registration.component";
 import {SuccessComponent} from "./user-registration/success/success.component";
+import {LoginComponent} from "./login/login.component";
 import {GoalComponent} from "./goal/goal.component";
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:"cashflow-detail", component:CashflowDetailComponent},
   {path:"button", component:ButtonComponent},
   {path:"registration", component: UserRegistrationComponent},
-  {path:"success", component: SuccessComponent}
+  {path:"success", component: SuccessComponent},
+  {path:"login", component: LoginComponent}
 ];
 
 @NgModule({
