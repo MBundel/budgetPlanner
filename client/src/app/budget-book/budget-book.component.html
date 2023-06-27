@@ -18,7 +18,7 @@
       </div>
 
 
-      <app-button [debit]="true" [name]="'add'"></app-button>
+      <app-button [debit]="true" [btnName]="'add'"></app-button>
     </div>
     <!--    -->
     <div class="container2">
@@ -26,7 +26,7 @@
       <div *ngFor="let entryList of nonDebitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
-      <app-button [name]="'add'"></app-button>
+      <app-button [btnName]="'add'"></app-button>
     </div>
   </div>
 </div>

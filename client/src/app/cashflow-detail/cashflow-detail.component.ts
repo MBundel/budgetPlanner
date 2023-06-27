@@ -8,6 +8,7 @@ import { Entry } from "../budget-book/budgetBookInterfaces";
 })
 export class CashflowDetailComponent {
   @Input() entry: Entry;
+  isEditing = false;
 
   constructor() {
     this.entry = { name: '', amount: 0, category: '', debit: false , id:0};

@@ -1,16 +1,31 @@
 <div class="component-container">
   <div>
     <table>
-      <tr>
+      <tr *ngIf="!isEditing">
         <td>{{ entry.name }}</td>
         <td>{{ entry.amount }} €</td>
+
+      </tr>
+      <tr *ngIf="isEditing">
+        <td><input type="text" [(ngModel)]="entry.name"></td>
+        <td><input type="text" [(ngModel)]="entry.amount"></td>
 
       </tr>
     </table>
   </div>
   <div class="button-container">
-    <app-button [id]="entry.id"  [name]="'edit'"></app-button>
+    <app-button
+                [id]="entry.id"
+                [entry] = entry
+                [btnName]=" isEditing ? 'save' : 'edit'"
+                (click)="isEditing = !isEditing"
 
-    <app-button  [id]="entry.id" [name]="'delete'"></app-button>
+
+    ></app-button>
+
+    <app-button  [id]="entry.id"
+                 [btnName]=" isEditing ? 'cancel' : 'delete'"
+
+    ></app-button>
   </div>
 </div>
