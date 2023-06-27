@@ -1,12 +1,12 @@
 <h1>Hier kommt ein kurzer Begrüßungstext hin!</h1>
 <div *ngIf="!sessionService.isLoggedIn()">
   <div>
-    <form (ngSubmit)="login()">
+    <form (submit)="login()">
       <label for="username">Username:</label>
       <input type="text" id="username" [(ngModel)]="user.username" name="username" required>
       <label for="password1">Password:</label>
       <input type="text" id="password1" [(ngModel)]="user.password1" name="password1" required>
-      <button type="submit">Login</button>
+      <button type="submit" >Login</button>
     </form>
     <div>{{errorMessage}}</div>
   </div>
@@ -17,4 +17,5 @@
   <hr>
   <app-budget-book></app-budget-book>
 </div>
+
 

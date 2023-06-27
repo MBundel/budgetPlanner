@@ -9,6 +9,7 @@ import {SuccessComponent} from "./user-registration/success/success.component";
 import {LoginComponent} from "./login/login.component";
 import {SessionComponent} from "./session/session.component";
 import {GoalComponent} from "./goal/goal.component";
+import {HomeComponent} from "./home/home.component";
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"registration", component: UserRegistrationComponent},
   {path:"success", component: SuccessComponent},
   {path:"login", component: LoginComponent},
-  {path:"session", component: SessionComponent}
+  {path:"session", component: SessionComponent},
+  {path:"", component: HomeComponent}
 ];
 
 @NgModule({
