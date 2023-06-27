@@ -6,10 +6,12 @@ import {CashflowDetailComponent} from "./cashflow-detail/cashflow-detail.compone
 import {ButtonComponent} from "./button/button.component";
 import {UserRegistrationComponent} from "./user-registration/user-registration.component";
 import {SuccessComponent} from "./user-registration/success/success.component";
+import {GoalComponent} from "./goal/goal.component";
 
 
 const routes: Routes = [
   {path:"budgetBook", component:BudgetBookComponent},
+  {path:"goal", component:GoalComponent},
   {path:"cashflow-card", component:CashflowCardComponent},
   {path:"cashflow-detail", component:CashflowDetailComponent},
   {path:"button", component:ButtonComponent},

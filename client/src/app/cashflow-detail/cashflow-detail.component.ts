@@ -10,6 +10,7 @@ export class CashflowDetailComponent {
   @Input() entry: Entry;
   @Input() category?: string;
   @Input() debit?: boolean;
+  showButtonContainer: boolean = false;
   isEditing = false;
 
 

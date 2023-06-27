@@ -13,6 +13,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { LoginComponent } from './login/login.component';
 import { ServicesComponent } from './services/services.component';
 import { SuccessComponent } from './user-registration/success/success.component';
+import { GoalComponent } from './goal/goal.component';
 
 
 
@@ -28,7 +29,8 @@ import { SuccessComponent } from './user-registration/success/success.component'
     UserRegistrationComponent,
     LoginComponent,
     ServicesComponent,
-    SuccessComponent
+    SuccessComponent,
+    GoalComponent
 
 
   ],

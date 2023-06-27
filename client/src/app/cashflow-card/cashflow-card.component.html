@@ -2,7 +2,6 @@
   <div>
     <div (click)="toggleEntryList()"> {{ entryList?.key }} </div>
 
-
     <div *ngIf="showEntryList">
       <div *ngFor="let entry of entryList?.value">
         <app-cashflow-detail [entry]="entry"></app-cashflow-detail>
@@ -11,7 +10,6 @@
       <div *ngIf="showDiv">
         <app-cashflow-detail [category]="entryList?.key ?? 'noCat'"
                              [debit]=debitValue>
-
         </app-cashflow-detail>
       </div>
       <app-button
