@@ -1,11 +1,12 @@
 <div class="component-container" (click)="toggleEntryList()">
   <div >
     {{ entryList?.key }}
+
 <!--    <div *ngIf="showEntryList">-->
       <div *ngFor="let entry of entryList?.value">
         <app-cashflow-detail [entry]="entry"></app-cashflow-detail>
       </div>
-      <app-button [name]="'add'"></app-button>
+      <app-button [category]="entryList?.key ?? 'noCat'" [name]="'add'"></app-button>
 <!--    </div>-->
   </div>
 </div>

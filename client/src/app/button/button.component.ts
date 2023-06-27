@@ -12,8 +12,11 @@ import {CalculateService} from "../calculate.service";
 export class ButtonComponent implements OnInit {
   @Input() name: string = 'NoUse';
   @Input() id: number = 0;
+  @Input() category: string ='';
+  @Input() debit: boolean = false;
 
   private baseUrl = '/api/budgetbook';
+
 
   constructor(private http: HttpClient, private calcService: CalculateService) {
 
@@ -25,11 +28,11 @@ export class ButtonComponent implements OnInit {
     if (this.name === 'delete') {
       this.deleteEntry(entryId).subscribe(
         () => {
-          // Erfolgreiche Löschung - Lade die Daten neu
+
           this.loadData();
         },
         error => {
-          // Fehler bei der Löschung - Behandle den Fehler entsprechend
+         console.log("error")
         }
       );
     }

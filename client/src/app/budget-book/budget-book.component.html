@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <h3>BUDGETBOOK</h3>
-      {{getSum()}}€
+     <h2> {{getSum()}}€</h2>
 
     </div>
 
@@ -18,7 +18,7 @@
       </div>
 
 
-      <app-button [name]="'add'"></app-button>
+      <app-button [debit]="true" [name]="'add'"></app-button>
     </div>
     <!--    -->
     <div class="container2">
