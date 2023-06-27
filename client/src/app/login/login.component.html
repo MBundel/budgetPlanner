@@ -1,0 +1,22 @@
+<h1>LOGIN!</h1>
+<div *ngIf="!sessionService.isLoggedIn()">
+  <div>
+    <form (ngSubmit)="login()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="user.username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="text" id="password" [(ngModel)]="user.password1" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div>{{errorMessage}}</div>
+    <a [routerLink]="['../register']">Register</a>
+  </div>
+</div>
+
+<div *ngIf="sessionService.isLoggedIn()">
+  <p>Welcome, {{response?.userId}}!</p>
+  <button (click)="logout()">Logout</button>
+  <hr>
+  <app-budget-book></app-budget-book>
+</div>
+
