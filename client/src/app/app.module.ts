@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SuccessComponent } from './user-registration/success/success.component';
 import { SessionComponent } from './session/session.component';
 import {SessionService} from "./session/session.service";
+import { GoalComponent } from './goal/goal.component';
 
 
 
@@ -29,9 +30,10 @@ import {SessionService} from "./session/session.service";
     UserRegistrationComponent,
     LoginComponent,
     SuccessComponent,
-    SessionComponent
-  ],
+    SessionComponent,
+    GoalComponent
 
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

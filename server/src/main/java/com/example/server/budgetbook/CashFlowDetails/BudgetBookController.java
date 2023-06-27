@@ -17,24 +17,6 @@ public class BudgetBookController {
     }
 
 
-//    @GetMapping("/api/budgetbook/isDebit")
-//    public Map<String, List<EntryCashFlow>> getDebitEntriesByCategory() {
-//        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
-//
-//        return entries.stream()
-//                .filter(EntryCashFlow::isDebit)
-//                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
-//    }
-//
-//    @GetMapping("/api/budgetbook/isNotDebit")
-//    public Map<String, List<EntryCashFlow>> getNonDebitEntriesByCategory() {
-//        List<EntryCashFlow> entries = entryCashFlowRepository.findAllByOrderByCreatedAtDesc();
-//
-//        return entries.stream()
-//                .filter(entry -> !entry.isDebit())
-
-//                .collect(Collectors.groupingBy(EntryCashFlow::getCategory));
-//    }
     @GetMapping("/api/budgetbook")
     public List<EntryCashFlow> findAllByOrderByCreatedAtDesc() {
 
@@ -57,7 +39,7 @@ public class BudgetBookController {
         existingEntry.setAmount(entryDTO.getAmount());
         existingEntry.setCategory(entryDTO.getCategory());
         existingEntry.setDebit(entryDTO.isDebit());
-        // ...
+
 
         entryCashFlowRepository.save(existingEntry);
 

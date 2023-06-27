@@ -1,32 +1,41 @@
 <div class="container1">
   <div>
     <div class="header">
-      <h3>BUDGETBOOK</h3>
+     <h3>BUDGETBOOK</h3>
      <h2> {{getSum()}}€</h2>
-
     </div>
-
   </div>
 
   <div class="lowercontainer">
-    <!--    -->
+
+   <!-- Income Side -->
     <div class="container2">
       <div>Einkommen</div>
-
       <div *ngFor="let entryList of debitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
-
-
-      <app-button [debit]="true" [btnName]="'add'"></app-button>
+      <div *ngIf="showNewDebit">
+        <app-cashflow-detail [debit] = true ></app-cashflow-detail>
+      </div>
+      <app-button [btnName]="'add'"
+                  (click)="showNewDebit= true"
+      ></app-button>
     </div>
-    <!--    -->
+    <!-- Cost Side   -->
     <div class="container2">
       <div> Ausgaben</div>
       <div *ngFor="let entryList of nonDebitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
-      <app-button [btnName]="'add'"></app-button>
+      <div *ngIf="showNewCredit">
+        <app-cashflow-detail
+          [debit] = false >
+
+        </app-cashflow-detail>
+      </div>
+      <app-button [btnName]="'add'"
+                  (click)="showNewCredit= true"
+      ></app-button>
     </div>
   </div>
 </div>

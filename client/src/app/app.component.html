@@ -6,6 +6,7 @@
     <div *ngIf="sessionService.isLoggedIn()">
       <a routerLink="/budgetBook" class="buttonClass">BUDGETBOOK</a>
     </div>
+    <a routerLink="/goal" class="buttonClass">GOAL PLANNER</a>
     <div *ngIf="!sessionService.isLoggedIn()">
       <a routerLink="/registration" class="buttonClass">REGISTRATION</a>
     </div>

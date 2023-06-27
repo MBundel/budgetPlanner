@@ -1,4 +1,4 @@
-<div class="component-container">
+<div class="component-container" (mouseenter)="showButtonContainer = true" (mouseleave)="showButtonContainer= false">
   <div>
     <table>
       <tr *ngIf="!isEditing">
@@ -7,16 +7,31 @@
 
       </tr>
       <tr *ngIf="isEditing">
-        <td><input type="text" [(ngModel)]="entry.name"></td>
-        <td><input type="text" [(ngModel)]="entry.amount"></td>
+        <td>
+          <label>Name:</label>
+          <input type="text" [(ngModel)]="entry.name">
+        </td>
+        <td>
+          <label>Amount:</label>
+          <input type="text" [(ngModel)]="entry.amount">
+        </td>
+        <td>
+          <label>Category:</label>
+          <input type="text" [(ngModel)]="entry.category">
+        </td>
+
 
       </tr>
     </table>
   </div>
-  <div class="button-container">
+  <div class="button-container" *ngIf="showButtonContainer">
+
+
     <app-button
                 [id]="entry.id"
                 [entry] = entry
+                [category]="category ?? entry.category"
+                [debit]="debit ?? entry.debit"
                 [btnName]=" isEditing ? 'save' : 'edit'"
                 (click)="isEditing = !isEditing"
 
