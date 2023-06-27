@@ -12,11 +12,12 @@ import java.util.List;
 public class UserController {
 
     private UserService userService;
+    private UserRepository userRepository;
 
     @Autowired
-    public UserController(UserService userService) {
-
+    public UserController(UserService userService, UserRepository userRepository) {
         this.userService = userService;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/registration")
@@ -68,6 +69,20 @@ public class UserController {
         // return new RegistrationDTO(newUser.getUsername(), newUser.getPassword(), newUser.getEmail(), newUser.getRole());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    //Login
+    @PostMapping("/login")
+    public LoginDTO login(@RequestBody User user) {
+        boolean isValid = userService.isValidUser(user.getUsername(), user.getPassword());
+        LoginDTO userId;
+        if (isValid) {
+            userId = new LoginDTO(userRepository.findByUsernameIgnoreCase(user.getUsername()).getId());
+            return userId;
+        } else
+            userId = new LoginDTO(0L);
+            return userId;
+    }
+
 
     // Für Rest Client und Admin:
     @GetMapping("/all")

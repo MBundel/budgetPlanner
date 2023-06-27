@@ -23,6 +23,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
+
+
     public User updateUser (User user) {
         return userRepository.save(user);
     }
@@ -55,6 +57,13 @@ public class UserService {
         }
         return false;
     }
+
+    //Login
+    public boolean isValidUser(String username, String password) {
+        User user = userRepository.findByUsernameIgnoreCase(username);
+        return user != null && user.getPassword().equals(password);
+    }
+
     /*
     public void deleteUser (User user) {
         userRepository.delete(user);

@@ -10,6 +10,8 @@ import { CashflowDetailComponent } from './cashflow-detail/cashflow-detail.compo
 import { ButtonComponent } from './button/button.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { LoginComponent } from './login/login.component';
+import { ServicesComponent } from './services/services.component';
 
 
 
@@ -23,6 +25,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     CashflowDetailComponent,
     ButtonComponent,
     UserRegistrationComponent,
+    LoginComponent,
+    ServicesComponent,
 
 
   ],
