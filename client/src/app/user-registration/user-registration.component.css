@@ -1,31 +1,23 @@
-.container1 {
-
-  padding: 10px;
-  border: solid 5px #982649;
-  border-radius: 20px;
-  width: 80%;
-  margin-left: 10%;
+.input-group {
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 50px;
 }
 
+.btn {
+  width: 300px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  background-color: #982649;
+  color: white;
+}
 
+.btn:hover {
+  background-color: #aa3d59;
+  color: white;
+}
 
-/*.gradient-custom-3 {*/
-/*  !* fallback for old browsers *!*/
-/*  background: #84fab0;*/
-
-/*  !* Chrome 10-25, Safari 5.1-6 *!*/
-/*  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));*/
-
-/*  !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-/*  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))*/
-/*}*/
-/*.gradient-custom-4 {*/
-/*  !* fallback for old browsers *!*/
-/*  background: #84fab0;*/
-
-/*  !* Chrome 10-25, Safari 5.1-6 *!*/
-/*  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));*/
-
-/*  !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-/*  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))*/
-/*}*/
+.error-message {
+  color: #982649; /* Farbe der Fehlermeldung */
+  font-size: 18px; /* Schriftgröße der Fehlermeldung */
+}
