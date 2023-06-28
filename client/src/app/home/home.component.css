@@ -1,12 +1,35 @@
+.container {
 
-
-.container2 {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
   margin: 5px;
-  width: 50%;
+  width: 100%;
   padding: 10px;
-  border: #982649 2px solid;
-  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.button-container a {
+  margin: 10px;
+}
+
+.btn {
+  width: 200px;
+  background-color: #982649;
+  color: white;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #aa3d59;
   color: white;
 }
 

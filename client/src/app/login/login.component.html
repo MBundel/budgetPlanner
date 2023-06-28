@@ -1,23 +1,48 @@
-<h1>Hier kommt ein kurzer Begrüßungstext hin!</h1>
-<div *ngIf="!sessionService.isLoggedIn()">
-  <div>
-    <form (submit)="login()">
-      <label for="username">Username:</label>
-      <input type="text" id="username" [(ngModel)]="user.username" name="username" required>
-      <label for="password1">Password:</label>
-      <input type="password" id="password1" [(ngModel)]="user.password1" name="password1" required>
-      <button type="submit" >Login</button>
-    </form>
-    <div>{{errorMessage}}</div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"
+      xmlns="http://www.w3.org/1999/html">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<div class="mask d-flex align-items-start h-100 gradient-custom-3">
+  <div class="container fluid">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+
+            <h2 class="text-uppercase text-center mb-3">WELCOME BACK </h2>
+            <h1 style="text-align: center;"> シ </h1>
+
+            <br>Wir freuen uns, dich hier begrüßen zu dürfen.<br>
+            <br>Unsere App bietet dir umfangreiche Funktionen zur Verwaltung deiner Finanzen. Du kannst Budgets erstellen, Ausgaben verfolgen, Sparziele setzen und vieles mehr.<br>
+            <br>Viel Erfolg und eine gute Zeit mit deinem Budgetbook!<br>
+
+            <div *ngIf="!sessionService.isLoggedIn()">
+              <div>
+                <form (submit)="login()">
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="username">유</span>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="username" [(ngModel)]="user.username" required/>
+                  </div>
+
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="password1">┈</span>
+                    <input type="password" id="password1" name="password1" class="form-control" placeholder="password" [(ngModel)]="user.password1" required/>
+                  </div>
+
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn w-100">LOGIN</button>
+                  </div>
+
+                </form>
+                <div>{{errorMessage}}</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<!--
-<div *ngIf="sessionService.isLoggedIn()">
-  <p>Welcome {{response}}!</p>
-  <hr>
-  <app-budget-book></app-budget-book>
-</div>
--->
-
 

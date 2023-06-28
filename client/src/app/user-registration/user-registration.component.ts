@@ -30,7 +30,7 @@ export class UserRegistrationComponent {
       (error: HttpErrorResponse) => {
         console.log('Fehler bei der Benutzerregistrierung', error);
         if (error.status === 400) {
-          this.newUser.usernameError = 'The field USERNAME must not be empty.';
+          this.newUser.usernameError = 'The field username must not be empty.';
         } else if (error.status === 403) {
           this.newUser.usernameError = 'Username is already in use.';
         } else if (error.status === 409) {
