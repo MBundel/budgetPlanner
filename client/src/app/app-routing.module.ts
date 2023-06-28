@@ -8,13 +8,14 @@ import {UserRegistrationComponent} from "./user-registration/user-registration.c
 import {SuccessComponent} from "./user-registration/success/success.component";
 import {LoginComponent} from "./login/login.component";
 import {SessionComponent} from "./session/session.component";
-import {GoalComponent} from "./goal/goal.component";
+
 import {HomeComponent} from "./home/home.component";
+import {GoalPlannerComponent} from "./goalSite/goal-planner/goal-planner.component";
 
 
 const routes: Routes = [
   {path:"budgetBook", component:BudgetBookComponent},
-  {path:"goal", component:GoalComponent},
+  {path:"goal", component:GoalPlannerComponent},
   {path:"cashflow-card", component:CashflowCardComponent},
   {path:"cashflow-detail", component:CashflowDetailComponent},
   {path:"button", component:ButtonComponent},

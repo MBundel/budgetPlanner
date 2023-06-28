@@ -31,9 +31,6 @@ export class BudgetBookComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("budgetbook init");
-    console.log(this.entriesByCategory)
-    console.log(this.calcService.entriesByCategory)
 
   }
 

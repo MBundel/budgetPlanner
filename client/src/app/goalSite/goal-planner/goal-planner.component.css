@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  color: transparent;
+}
+
+h3{
+  color: #00B38F;
+
+}
+
+.plus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  width: 150px;
+  height: 200px;
+  padding: 10px;
+  border: #982649 2px solid;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  background-image: radial-gradient(circle at center, #AA3357, #982649);
+  position: relative;
+}
+.plus:hover {
+  color: black;
+  transform: scale(1.05);
+  transition-duration: 200ms;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
