@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/login']);
       } else {
         this.sessionService.setSessionStorage(this.user.username)
-        this.router.navigate(['/api/budgetBook']);
+        this.router.navigate(['/budgetBook']);
       }
     })
   }
