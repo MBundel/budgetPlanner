@@ -1,3 +1,22 @@
+.card {
+  color: white;
+  background-color: transparent;
+  border: solid 5px #982649;
+  border-radius: 20px;
+}
+
+p.text-center.text-muted.mt-3.mb-0 {
+  color: white !important;
+}
+
+.fw-bold {
+  color: white !important;
+}
+
+.text-body {
+  color: white !important;
+}
+
 .input-group {
   justify-content: center;
   margin-top: 25px;
@@ -8,12 +27,12 @@
   width: 300px;
   margin-top: 25px;
   margin-bottom: 50px;
-  background-color: #982649;
+  background-color: #190637;
   color: white;
 }
 
 .btn:hover {
-  background-color: #aa3d59;
+  background-color: #2A0B47;
   color: white;
 }
 

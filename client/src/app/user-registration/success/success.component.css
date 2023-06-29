@@ -1,3 +1,10 @@
+.card {
+  color: white;
+  background-color: transparent;
+  border: solid 5px #982649;
+  border-radius: 20px;
+}
+
 .container {
   display: flex;
   justify-content: center;

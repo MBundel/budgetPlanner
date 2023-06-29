@@ -1,13 +1,6 @@
-.container {
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
   text-align: justify;
-  margin: 5px;
-  width: 100%;
-  padding: 10px;
-  color: white;
   font-size: 18px;
 }
 
@@ -23,13 +16,20 @@
 
 .btn {
   width: 200px;
-  background-color: #982649;
+  background-color: #190637;
   color: white;
   text-align: center;
 }
 
 .btn:hover {
-  background-color: #aa3d59;
+  background-color: #2A0B47;
   color: white;
+}
+
+.card {
+  color: white;
+  background-color: transparent;
+  border: solid 5px #982649;
+  border-radius: 20px;
 }
 
