@@ -9,7 +9,7 @@ import { Entry, EntryList } from "../budget-book/budgetBookInterfaces";
 export class CashflowCardComponent {
   @Input() entryList?: EntryList;
   showEntryList: boolean = false;
-  showDiv = false;
+  showNewCard = false;
   debitValue: boolean = false;
 
   constructor() {}

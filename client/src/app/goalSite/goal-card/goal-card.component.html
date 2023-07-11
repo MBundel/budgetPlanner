@@ -9,6 +9,6 @@
     <input *ngIf="entry" [(ngModel)]="entry.name" type="text" (blur)="toggleEditMode()">
     <input *ngIf="entry" [(ngModel)]="entry.cost" type="number" (blur)="toggleEditMode()">
     <input *ngIf="entry" [(ngModel)]="entry.deadLine" type="date" (blur)="toggleEditMode()">
-
+    <button (click)="deleteEntry()">Löschen</button>
   </ng-template>
 </div>

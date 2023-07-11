@@ -11,12 +11,13 @@ export class CashflowDetailComponent {
   @Input() category?: string;
   @Input() debit?: boolean;
   showButtonContainer: boolean = false;
-  isEditing = false;
+  @Input() isEditing?: boolean ;
 
 
   constructor() {
     this.entry = { name: '', amount: 0, category: '', debit: false , id:0};
   }
+
 
 
 }

@@ -1,7 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import More from 'highcharts/highcharts-more';
-import { HighchartsChartModule } from 'highcharts-angular';
+import {HighchartsChartModule} from 'highcharts-angular';
+import {Entry, EntryList} from "../goalInterfaces";
+import {HttpClient} from "@angular/common/http";
+import {CalculateService} from "../../calculate.service";
+
 More(Highcharts);
 
 @Component({
@@ -14,18 +18,38 @@ More(Highcharts);
   standalone: true
 })
 export class GoalComponent implements OnInit {
-  @ViewChild('chartContainer', { static: true }) chartContainer?: ElementRef;
+  deadline = "2023-12-31T23:59:59Z";
+  monthsUntilDeadline?: number;
+
+  allEntries: Entry[] = []
+  entry?: Entry;
+  goalData: number[][] = [];
+  budgetData: number[][] = [];
+  foreignSum: number;
+
+  @ViewChild('chartContainer', {static: true}) chartContainer?: ElementRef;
+
 
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions!: Highcharts.Options;
 
-  elevationData = [
-    [0, 0],
-    [5, 300],
-    [12, 1500],
-    [12, 1000],
-    [24, 1500],
-  ];
+  constructor(private http: HttpClient, private calcService: CalculateService) {
+    this.foreignSum = calcService.sum;
+
+  }
+
+
+  fetchEntries(): void {
+    this.http.get<Entry[]>('/api/goal').subscribe(allEntries => {
+      this.allEntries = allEntries;
+      this.calculateMonthsUntilDeadline()
+      // console.log(this.allEntries)
+    });
+  }
+
+
+  elevationData = this.goalData;
+
 
   ngOnInit(): void {
     this.chartOptions = {
@@ -137,7 +161,7 @@ export class GoalComponent implements OnInit {
       yAxis: {
         startOnTick: true,
         endOnTick: false,
-        maxPadding: 0        ,
+        maxPadding: 0,
         title: {
           text: null,
         },
@@ -172,11 +196,55 @@ export class GoalComponent implements OnInit {
         },
       ],
     };
-
-    // Erstelle das Chart, wenn das chartContainer-Element vorhanden ist
     if (this.chartContainer) {
       Highcharts.chart(this.chartContainer.nativeElement, this.chartOptions);
     }
+    this.fetchEntries();
+
   }
+
+  calculateMonthsUntilDeadline() {
+    const today = new Date();
+
+    this.allEntries.forEach((entry: Entry) => {
+      const deadlineDate = new Date(entry.deadLine);
+      const diffInMonths = (deadlineDate.getFullYear() - today.getFullYear()) * 12 +
+        (deadlineDate.getMonth() - today.getMonth());
+      const monthsUntilDeadline = Math.abs(diffInMonths);
+      const newDataPoint: number[] = [monthsUntilDeadline, entry.cost];
+      this.goalData.push(newDataPoint);
+    });
+
+    let endOfGraph = Math.max(...this.goalData.map(row => row[0])) + 6;
+
+    let totalSpending = 0;
+    let monthlyAsset = 0;
+    for (let i = 0; i <= endOfGraph; i++) {
+      const newDataPoint: number[] = [i, monthlyAsset];
+
+      monthlyAsset = i * this.foreignSum -totalSpending;
+
+      for (let j = 0; j < this.goalData.length; j++) {
+        if( this.goalData[j][0] === i ){
+          monthlyAsset -= this.goalData[j][1];
+          totalSpending += this.goalData[j][1];
+        }
+      }
+      this.budgetData.push(newDataPoint)
+
+
+
+    }
+
+
+    // Update elevationData after populating goaldata
+    this.elevationData = this.budgetData;
+
+    // Update the chart
+    (this.chartOptions.series![0] as Highcharts.SeriesAreaOptions).data = this.elevationData;
+    Highcharts.chart(this.chartContainer!.nativeElement, this.chartOptions);
+  }
+
+
 }
 

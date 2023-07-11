@@ -46,4 +46,21 @@ export class GoalCardComponent implements OnInit {
       }
     );
   }
+  deleteEntry(): void {
+    if (!this.entry?.id) {
+      return;
+    }
+
+    this.http.delete(`/api/goal/${this.entry.id}`).subscribe(
+      (response) => {
+        console.log('Eintrag erfolgreich gelöscht:', response);
+        // Hier kannst du weitere Schritte ausführen, nachdem der Eintrag erfolgreich gelöscht wurde
+      },
+      (error) => {
+        console.error('Fehler beim Löschen des Eintrags:', error);
+        // Hier kannst du Fehlerbehandlungsschritte ausführen, falls beim Löschen ein Fehler auftritt
+      }
+    );
+  }
+
 }

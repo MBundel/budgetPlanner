@@ -30,7 +30,10 @@
       </div>
       <div *ngIf="showNewCredit">
         <app-cashflow-detail
-          [debit] = false >
+          [debit] = false
+          [isEditing] =  true
+        >
+
 
         </app-cashflow-detail>
       </div>

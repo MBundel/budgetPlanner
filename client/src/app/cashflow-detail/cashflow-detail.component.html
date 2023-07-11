@@ -1,15 +1,17 @@
 
 <div class="component-container" (mouseenter)="showButtonContainer = true" (mouseleave)="showButtonContainer= false">
   <div>
-    <table>
-      <tr *ngIf="!isEditing">
+    <table >
+      <tr (click)="isEditing = !isEditing" *ngIf="!isEditing">
         <td>{{ entry.name }}</td>
         <td>{{ entry.amount }} €</td>
 
       </tr>
+
+<!-- Editing Mode      -->
       <tr *ngIf="isEditing">
         <td>
-          <label>Name:</label>
+          <label >Name:</label>
           <input type="text" [(ngModel)]="entry.name">
         </td>
         <td>
@@ -18,7 +20,8 @@
         </td>
         <td>
           <label>Category:</label>
-          <input type="text" [(ngModel)]="entry.category">
+          <input type="text" [(ngModel)]="entry.category" [placeholder]="entry.category">
+
         </td>
 
 
@@ -36,12 +39,17 @@
                 [btnName]=" isEditing ? 'save' : 'edit'"
                 (click)="isEditing = !isEditing"
 
+                                                >
 
-    ></app-button>
+    </app-button>
 
     <app-button  [id]="entry.id"
                  [btnName]=" isEditing ? 'cancel' : 'delete'"
 
     ></app-button>
   </div>
+</div>
+
+<div class="A">
+  <div class="B"></div>
 </div>
