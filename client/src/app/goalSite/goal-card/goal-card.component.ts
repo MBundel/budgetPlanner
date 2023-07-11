@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Entry } from "../goalInterfaces";
 import { HttpClient } from '@angular/common/http';
 import { formatDate } from '@angular/common';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-goal-card',
@@ -13,7 +14,8 @@ export class GoalCardComponent implements OnInit {
   isEditMode: boolean = false;
   formattedDeadline: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.formatDeadline();
@@ -46,6 +48,7 @@ export class GoalCardComponent implements OnInit {
       }
     );
   }
+
   deleteEntry(): void {
     if (!this.entry?.id) {
       return;
@@ -54,13 +57,14 @@ export class GoalCardComponent implements OnInit {
     this.http.delete(`/api/goal/${this.entry.id}`).subscribe(
       (response) => {
         console.log('Eintrag erfolgreich gelöscht:', response);
-        // Hier kannst du weitere Schritte ausführen, nachdem der Eintrag erfolgreich gelöscht wurde
+        window.location.reload();
+
       },
       (error) => {
         console.error('Fehler beim Löschen des Eintrags:', error);
-        // Hier kannst du Fehlerbehandlungsschritte ausführen, falls beim Löschen ein Fehler auftritt
       }
     );
-  }
 
+
+  }
 }

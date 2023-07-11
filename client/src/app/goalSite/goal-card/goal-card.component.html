@@ -1,14 +1,17 @@
 <div class="container2">
   <ng-container *ngIf="!isEditMode; else editModeTemplate">
     <h2 (click)="toggleEditMode()">{{entry?.name}}</h2>
-    <p>{{entry?.cost}} €</p>
-    <p>{{ formattedDeadline }}</p>
+    <p (click)="toggleEditMode()">{{entry?.cost}} €</p>
+    <p (click)="toggleEditMode()">{{ formattedDeadline }}</p>
   </ng-container>
 
   <ng-template #editModeTemplate>
     <input *ngIf="entry" [(ngModel)]="entry.name" type="text" (blur)="toggleEditMode()">
     <input *ngIf="entry" [(ngModel)]="entry.cost" type="number" (blur)="toggleEditMode()">
     <input *ngIf="entry" [(ngModel)]="entry.deadLine" type="date" (blur)="toggleEditMode()">
-    <button (click)="deleteEntry()">Löschen</button>
+
+    <button (click)="deleteEntry()">Delete</button>
+    <button (click)="isEditMode = !isEditMode">Cancel</button>
+
   </ng-template>
 </div>
