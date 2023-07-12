@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Entry } from "../budget-book/budgetBookInterfaces";
+import { Entry } from "../budgetBookInterfaces";
 
 @Component({
   selector: 'app-cashflow-detail',

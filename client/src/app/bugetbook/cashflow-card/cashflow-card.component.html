@@ -1,7 +1,7 @@
 
 <div class="component-container">
   <div>
-    <div class="clickableRegion" (click)="toggleEntryList()"> {{ entryList?.key }} </div>
+    <div class="clickableRegion" (click)="toggleEntryList()"> <p> {{ entryList?.key }} </p><p> {{ sum | number:'1.0-0'}} € </p>  </div>
 
     <div *ngIf="showEntryList">
       <div *ngFor="let entry of entryList?.value">
@@ -21,6 +21,7 @@
         (click)="showNewCard = true">
         >
       </app-button>
+
     </div>
   </div>
 </div>

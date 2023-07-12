@@ -1,18 +1,23 @@
-import { Component, Input } from '@angular/core';
-import { Entry, EntryList } from "../budget-book/budgetBookInterfaces";
+import { Component, Input, OnInit } from '@angular/core';
+import { Entry, EntryList } from "../budgetBookInterfaces";
 
 @Component({
   selector: 'app-cashflow-card',
   templateUrl: './cashflow-card.component.html',
   styleUrls: ['./cashflow-card.component.css']
 })
-export class CashflowCardComponent {
+export class CashflowCardComponent implements OnInit {
   @Input() entryList?: EntryList;
   showEntryList: boolean = false;
   showNewCard = false;
   debitValue: boolean = false;
+  sum: number = 0;
 
-  constructor() {}
+  constructor() { }
+
+  ngOnInit() {
+    this.getSum();
+  }
 
   ngOnChanges() {
     if (this.entryList && this.entryList.value.length > 0) {
@@ -22,5 +27,13 @@ export class CashflowCardComponent {
 
   toggleEntryList() {
     this.showEntryList = !this.showEntryList;
+  }
+
+  getSum() {
+    if (this.entryList && this.entryList.value) {
+      for (const entry of this.entryList.value) {
+        this.sum += entry.amount;
+      }
+    }
   }
 }

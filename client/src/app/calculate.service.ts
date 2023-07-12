@@ -1,5 +1,5 @@
 import {Injectable, OnInit} from "@angular/core";
-import {Entry} from "./budget-book/budgetBookInterfaces";
+import {Entry} from "./bugetbook/budgetBookInterfaces";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({

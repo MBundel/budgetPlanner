@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CalculateService} from "../calculate.service";
-import {Entry} from "../budget-book/budgetBookInterfaces";
+import {Entry} from "../bugetbook/budgetBookInterfaces";
 
 @Component({
   selector: 'app-button',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Entry } from "./budgetBookInterfaces";
+import { Entry } from "../budgetBookInterfaces";
 import { HttpClient } from "@angular/common/http";
-import { CalculateService } from "../calculate.service";
+import { CalculateService } from "../../calculate.service";
 import {tick} from "@angular/core/testing";
 
 @Component({
