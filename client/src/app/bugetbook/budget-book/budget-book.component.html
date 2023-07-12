@@ -3,7 +3,9 @@
   <div>
     <div class="header">
      <h3>BUDGETBOOK</h3>
-     <h2> {{getSum()}}€</h2>
+      <h2 [style.color]="getSum() < 0 ? 'red' : 'green'">
+        {{ getSum() | number:'1.0-0' }}€
+      </h2>
     </div>
   </div>
 

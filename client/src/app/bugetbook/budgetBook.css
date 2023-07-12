@@ -34,12 +34,11 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-
 }
 
 .clickableRegion > p {
   margin: 2px;
-  padding: 0 10px;
+  padding: 0;
 }
 
 
