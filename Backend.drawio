@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-13T07:01:48.536Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.79" etag="td0JdNMFilj-6CKmog7R" version="21.5.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-13T07:06:39.029Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.79" etag="bnTeXS2WqsB8mk0A_-J7" version="21.5.0" type="github">
   <diagram name="Seite-1" id="nGbcTih9HJXoeC_Z4p0X">
     <mxGraphModel dx="1615" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -85,8 +85,8 @@
         <mxCell id="y889wtAWXyb6QO6ec5UY-1" value="Class&lt;br&gt;Insurcance" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-620" y="370" width="190" height="206" as="geometry" />
         </mxCell>
-        <mxCell id="y889wtAWXyb6QO6ec5UY-2" value="- id: int&amp;nbsp;&lt;br&gt;- insuranceName : String&lt;br&gt;- companyName : String&lt;br&gt;- amount: double&lt;br&gt;- payPeroidperYear: short&lt;br&gt;- endOfContract: Date&lt;br&gt;- isActive: boolean&lt;br&gt;- isNessessary: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="y889wtAWXyb6QO6ec5UY-1">
-          <mxGeometry y="26" width="190" height="180" as="geometry" />
+        <mxCell id="y889wtAWXyb6QO6ec5UY-2" value="- id: int&amp;nbsp;&lt;br&gt;- insuranceName : String&lt;br&gt;- companyName : String&lt;br&gt;- amount: double&lt;br&gt;- payPeroidperYear: byte&lt;br&gt;- endOfContract: Date&lt;br&gt;- isActive: boolean&lt;br&gt;- isNessessary: boolean&lt;br&gt;- percentualCover: byte" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-620" y="396" width="190" height="180" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
