@@ -1,4 +1,4 @@
-package com.example.server.budgetbook.CashFlowDetails;
+package com.example.server.budgetbook;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
