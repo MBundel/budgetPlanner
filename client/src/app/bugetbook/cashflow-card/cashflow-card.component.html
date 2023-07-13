@@ -1,26 +1,32 @@
-
 <div class="component-container">
   <div>
-    <div class="clickableRegion" (click)="toggleEntryList()"> <p> {{ entryList?.key }} </p><p> {{ sum.toLocaleString('de-DE')}} € </p>  </div>
-
+    <div class="clickableRegion opener" (click)="toggleEntryList()"><p> {{ entryList?.key }} </p>
+      <p> {{ sum.toLocaleString('de-DE')}} € </p></div>
+    <!--      LIST OF COST    -->
     <div *ngIf="showEntryList">
       <div *ngFor="let entry of entryList?.value">
-        <app-cashflow-detail [entry]="entry"></app-cashflow-detail>
+        <app-cashflow-detail [entry]="entry"/>
       </div>
 
+
+
+
+      <!--    NEW ENTRY   -->
       <div *ngIf="showNewCard">
         <app-cashflow-detail [category]="entryList?.key ?? 'noCat'"
                              [debit]=debitValue
-                             [isEditing] = true>
-        </app-cashflow-detail>
+                             [isEditing]=true />
+
       </div>
+
+
+<!--      BUTTON    -->
       <app-button
         [category]="entryList?.key ?? 'noCat'"
         [debit]=debitValue
         [btnName]="'add'"
-        (click)="showNewCard = true">
-        >
-      </app-button>
+        (click)="showNewCard = true"/>
+
 
     </div>
   </div>

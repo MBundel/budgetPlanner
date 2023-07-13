@@ -4,7 +4,7 @@ import { Entry, EntryList } from "../budgetBookInterfaces";
 @Component({
   selector: 'app-cashflow-card',
   templateUrl: './cashflow-card.component.html',
-  styleUrls: ['./cashflow-card.component.css']
+  styleUrls: ['../cardTemplate.css']
 })
 export class CashflowCardComponent implements OnInit {
   @Input() entryList?: EntryList;

@@ -24,6 +24,7 @@ import { GoalCardComponent } from './goalSite/goal-card/goal-card.component';
 import { GoalPlannerComponent } from './goalSite/goal-planner/goal-planner.component';
 import {GoalComponent} from "./goalSite/goal/goal.component";
 import { InsurcancesComponent } from './insurcances/insurcances.component';
+import { CardTemplateComponent } from './bugetbook/card-template/card-template.component';
 
 
 // bootstrapApplication(AppComponent);
@@ -42,6 +43,7 @@ import { InsurcancesComponent } from './insurcances/insurcances.component';
     GoalCardComponent,
     GoalPlannerComponent,
     InsurcancesComponent,
+    CardTemplateComponent,
 
 
   ],

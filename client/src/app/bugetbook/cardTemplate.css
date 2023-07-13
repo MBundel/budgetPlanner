@@ -34,11 +34,16 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+
 }
 
 .clickableRegion > p {
   margin: 2px;
-  padding: 0;
+  padding: 0 10px;
 }
 
+.link {
+  border-radius: 10px;
+  background-color: rgba(25, 6, 55, .5);
+}
 

@@ -18,30 +18,34 @@
         <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
       </div>
       <div *ngIf="showNewDebit">
-        <app-cashflow-detail [debit] = true ></app-cashflow-detail>
+        <app-cashflow-detail [debit] = true />
       </div>
       <app-button [btnName]="'add'"
                   (click)="showNewDebit= true"
-      ></app-button>
+      />
     </div>
     <!-- Cost Side   -->
     <div class="container2">
       <div> Ausgaben</div>
       <div *ngFor="let entryList of nonDebitEntriesByCategory | keyvalue">
-        <app-cashflow-card [entryList]="entryList"></app-cashflow-card>
+        <app-cashflow-card [entryList]="entryList"/>
       </div>
+<!--      Insurance     -->
+      <app-card-template [name]="'Versicherungen'" routerLink="/insurances" />
+      <app-card-template [name]="'Rente'" routerLink="/versicherung" />
+      <app-card-template [name]="'Kredite'" routerLink="/versicherung" />
+
+<!--      ADD FUNCTION    -->
       <div *ngIf="showNewCredit">
         <app-cashflow-detail
           [debit] = false
           [isEditing] =  true
-        >
-
-
-        </app-cashflow-detail>
+        />
       </div>
+
       <app-button [btnName]="'add'"
                   (click)="showNewCredit= true"
-      ></app-button>
+      />
     </div>
   </div>
 </div>

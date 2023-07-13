@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Entry } from "../budgetBookInterfaces";
+import {Entry, EntryList} from "../budgetBookInterfaces";
 import { HttpClient } from "@angular/common/http";
 import { CalculateService } from "../../calculate.service";
 import {tick} from "@angular/core/testing";
@@ -19,6 +19,8 @@ export class BudgetBookComponent implements OnInit {
   showNewDebit: boolean = false;
   showNewCredit: boolean = false;
 
+
+
   constructor(private http: HttpClient, private calcService: CalculateService) {
     this.entriesByCategory = this.calcService.entriesByCategory;
     this.debitEntriesByCategory = this.calcService.isDebitMap;
@@ -31,8 +33,6 @@ export class BudgetBookComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
   }
 
   save() {
@@ -41,5 +41,4 @@ export class BudgetBookComponent implements OnInit {
     });
   }
 
-  // protected readonly tick = tick;
 }
