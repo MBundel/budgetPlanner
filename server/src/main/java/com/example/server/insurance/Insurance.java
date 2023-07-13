@@ -1,5 +1,6 @@
 package com.example.server.insurance;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -13,12 +14,13 @@ import java.util.Date;
 
 
 @Table(name = "insurance")
+@Entity
 public class Insurance {
     @jakarta.persistence.Id
     @Id
-    @GeneratedValue
-    @javax.persistence.GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Getter
+    @GeneratedValue @javax.persistence.GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Getter
     @Setter
     private String insuranceName;
@@ -48,22 +50,24 @@ public class Insurance {
     private byte percentageCover;
     @Getter
     private Instant createdAt;
-
-
     public Insurance() {
     }
 
-    public Insurance(int id, String insuranceName, double amount) {
-        this.id = id;
+
+
+    public Insurance(String insuranceName, String companyName, double amount, byte payPeriodPerYear, Date endOfContract, Date payDay, boolean active, boolean necessary, byte percentageCover) {
+
         this.insuranceName = insuranceName;
-        this.companyName = "companyName";
+        this.companyName = companyName;
         this.amount = amount;
-        this.payPeriodPerYear = 12;
-        this.endOfContract = java.sql.Date.valueOf(LocalDate.now());
-        this.isActive = false;
-        this.isNecessary = false;
-        this.percentageCover = 0;
-        this.payDay = java.sql.Date.valueOf(LocalDate.now());
+        this.payPeriodPerYear = payPeriodPerYear;
+        this.endOfContract = endOfContract;
+        this.payDay = payDay;
+        this.isActive = active;
+        this.isNecessary = necessary;
+        this.percentageCover = percentageCover;
         this.createdAt = Instant.now();
+
     }
+
 }

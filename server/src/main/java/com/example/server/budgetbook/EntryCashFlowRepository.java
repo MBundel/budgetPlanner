@@ -11,15 +11,15 @@ import java.util.Map;
 public interface EntryCashFlowRepository extends JpaRepository<EntryCashFlow, Integer> {
     List<EntryCashFlow> findAllByOrderByCreatedAtDesc();
 
-    default Map<String, List<EntryCashFlow>> getEntriesByCategory() {
-        List<EntryCashFlow> allEntries = findAllByOrderByCreatedAtDesc();
-        Map<String, List<EntryCashFlow>> entriesByCategory = new HashMap<>();
-
-        for (EntryCashFlow entry : allEntries) {
-            String category = entry.getCategory();
-            entriesByCategory.computeIfAbsent(category, k -> new ArrayList<>()).add(entry);
-        }
-
-        return entriesByCategory;
-    }
+//    default Map<String, List<EntryCashFlow>> getEntriesByCategory() {
+//        List<EntryCashFlow> allEntries = findAllByOrderByCreatedAtDesc();
+//        Map<String, List<EntryCashFlow>> entriesByCategory = new HashMap<>();
+//
+//        for (EntryCashFlow entry : allEntries) {
+//            String category = entry.getCategory();
+//            entriesByCategory.computeIfAbsent(category, k -> new ArrayList<>()).add(entry);
+//        }
+//
+//        return entriesByCategory;
+//    }
 }
