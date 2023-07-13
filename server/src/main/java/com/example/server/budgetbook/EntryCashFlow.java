@@ -20,6 +20,7 @@ import java.time.Instant;
 public class EntryCashFlow {
     @jakarta.persistence.Id
     @Id
+    @Getter
     @GeneratedValue @javax.persistence.GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Getter
