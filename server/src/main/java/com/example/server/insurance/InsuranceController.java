@@ -1,6 +1,4 @@
 package com.example.server.insurance;
-
-import com.example.server.budgetbook.EntryCashFlowConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
