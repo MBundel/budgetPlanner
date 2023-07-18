@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Entry, EntryList } from "../budgetBookInterfaces";
+import {  EntryList } from "../budgetBookInterfaces";
 
 @Component({
   selector: 'app-cashflow-card',
   templateUrl: './cashflow-card.component.html',
-  styleUrls: ['../cardTemplate.css']
+  styleUrls: ['../../styles/cardTemplate.css']
 })
 export class CashflowCardComponent implements OnInit {
   @Input() entryList?: EntryList;

@@ -30,7 +30,7 @@
       <div *ngFor="let entryList of nonDebitEntriesByCategory | keyvalue">
         <app-cashflow-card [entryList]="entryList"/>
       </div>
-<!--      Insurance     -->
+<!--      ADDITIONAL CARDS     -->
       <app-card-template [name]="'Versicherungen'" routerLink="/insurances" />
       <app-card-template [name]="'Rente'" routerLink="/versicherung" />
       <app-card-template [name]="'Kredite'" routerLink="/versicherung" />

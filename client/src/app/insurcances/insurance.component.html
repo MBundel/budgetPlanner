@@ -1,0 +1,32 @@
+
+<div >
+<img (click)="setTileLayout()"  class="icon-s hoverScale" src="assets/tiles.png" alt="">
+<img (click)="setListLayout()"  class="icon-s hoverScale" src="assets/list.png"  alt="">
+</div>
+
+<div [class]="container">
+
+<div *ngFor="let entry of allEntries" [class]='classLayout' >
+  <div (click)="isDetail = !isDetail">
+
+  <h3>{{ entry.insuranceName }}  </h3>
+  <p>{{ entry.percentageCover }} %</p>
+  <p>{{ entry.amount }}€ </p>
+  <p>{{ entry.payPeriodPerYear }} Raten pro Jahr</p>
+
+
+
+    <ng-container *ngIf="isList && isDetail">
+
+  <p> Company Name:        {{ entry.companyName }}</p>
+  <p> End of Contract:     {{ entry.endOfContract | date }}</p>
+  <p> Pay Day:             {{ entry.payDay | date }}</p>
+  <p> Active:              {{ entry.isActive }}</p>
+  <p> Necessary:           {{ entry.isNecessary }}</p>
+  <p> Created At:          {{ entry.createdAt | date }}</p>
+
+    </ng-container>
+
+</div>
+</div>
+</div>

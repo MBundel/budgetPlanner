@@ -15,15 +15,13 @@ import {SuccessComponent} from "./user-registration/success/success.component";
 import {HomeComponent} from "./home/home.component";
 import {CashflowDetailComponent} from "./bugetbook/cashflow-detail/cashflow-detail.component";
 
-import {SessionComponent} from "./session/session.component"; // Import NgbModule from ng-bootstrap
+import {SessionComponent} from "./session/session.component";
 
-import {
-  bootstrapApplication
-} from '@angular/platform-browser';
+
 import { GoalCardComponent } from './goalSite/goal-card/goal-card.component';
 import { GoalPlannerComponent } from './goalSite/goal-planner/goal-planner.component';
 import {GoalComponent} from "./goalSite/goal/goal.component";
-import { InsurcancesComponent } from './insurcances/insurcances.component';
+import { InsuranceComponent } from './insurcances/insurance.component';
 import { CardTemplateComponent } from './bugetbook/card-template/card-template.component';
 
 
@@ -42,7 +40,7 @@ import { CardTemplateComponent } from './bugetbook/card-template/card-template.c
     HomeComponent,
     GoalCardComponent,
     GoalPlannerComponent,
-    InsurcancesComponent,
+    InsuranceComponent,
     CardTemplateComponent,
 
 
