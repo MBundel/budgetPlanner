@@ -1,0 +1,34 @@
+@use "colors" as *;
+
+.g-padding{
+  padding-left: 10px;
+}
+.g-margin{
+  margin: 20px;
+}
+
+.icon-s{
+  width: 3vw;
+  height: auto;
+
+}
+
+.hoverScale{
+  transition: 200ms;
+}
+.hoverScale:hover{
+  scale: 1.1;
+  transition: 200ms;
+}
+
+.g-container{
+  display: flex;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: fit-content;
+  border: 1px solid $main-color;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+
+}

@@ -1,0 +1,36 @@
+@use '../../../styles/colors' as *;
+
+.container1 {
+
+  padding: 10px;
+  border: solid 5px $main-color;
+  border-radius: 20px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.header {
+  color: $accent-color;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+.lowercontainer {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.container2 {
+  margin: 5px;
+  width: 50%;
+  padding: 10px;
+  border: $main-color 2px solid;
+  border-radius: 20px;
+  color: $font-color;
+}
+.costs {
+  background-color: $main-background;
+  width: 50%;
+  padding: 10px;
+}

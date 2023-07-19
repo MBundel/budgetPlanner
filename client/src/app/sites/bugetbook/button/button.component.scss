@@ -1,0 +1,14 @@
+@use '../../../styles/colors' as *;
+
+.edit{}
+.add{}
+.delete{}
+.large{}
+.fancy{}
+.default{}
+.test{
+  background-color: transparent;
+  color: $font-color;
+  border-radius: 10px;
+  margin: 4px;
+}

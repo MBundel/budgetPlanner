@@ -1,16 +1,16 @@
 import { NgModule }                 from '@angular/core';
 import { RouterModule, Routes }     from '@angular/router';
-import {BudgetBookComponent}        from "./bugetbook/budget-book/budget-book.component";
-import {CashflowCardComponent}      from "./bugetbook/cashflow-card/cashflow-card.component";
-import {CashflowDetailComponent}    from "./bugetbook/cashflow-detail/cashflow-detail.component";
-import {ButtonComponent}            from "./button/button.component";
-import {UserRegistrationComponent}  from "./user-registration/user-registration.component";
-import {SuccessComponent}           from "./user-registration/success/success.component";
-import {LoginComponent}             from "./login/login.component";
-import {SessionComponent}           from "./session/session.component";
-import {HomeComponent}              from "./home/home.component";
-import {GoalPlannerComponent}       from "./goalSite/goal-planner/goal-planner.component";
-import {InsuranceComponent}       from "./insurcances/insurance.component";
+import {BudgetBookComponent}        from "./sites/bugetbook/budget-book/budget-book.component";
+import {CashflowCardComponent}      from "./sites/bugetbook/cashflow-card/cashflow-card.component";
+import {CashflowDetailComponent}    from "./sites/bugetbook/cashflow-detail/cashflow-detail.component";
+import {ButtonComponent}            from "./sites/bugetbook/button/button.component";
+import {UserRegistrationComponent}  from "./sites/user-registration/user-registration.component";
+import {SuccessComponent}           from "./sites/user-registration/success/success.component";
+import {LoginComponent}             from "./sites/login/login.component";
+import {SessionComponent}           from "./services/session/session.component";
+import {HomeComponent}              from "./sites/home/home.component";
+import {GoalPlannerComponent}       from "./sites/goalSite/goal-planner/goal-planner.component";
+import {InsuranceComponent}       from "./sites/insurcances/insurance.component";
 
 
 const routes: Routes = [

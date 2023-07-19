@@ -1,0 +1,39 @@
+
+
+.cover{
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+
+.circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: circleAnim 1.35s linear forwards;
+}
+
+
+
+@keyframes circleAnim {
+  100%{
+    stroke-dashoffset: 200;
+
+  }
+}
+
+
+
+.number{
+  justify-self: center;
+  align-self: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}

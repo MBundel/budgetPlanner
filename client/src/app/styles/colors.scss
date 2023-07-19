@@ -1,0 +1,26 @@
+
+//Scheme 1 DarkMode
+$main-color: #982649;
+$main-background: #273469;
+$accent-color: #D5A021;
+$font-color: #FFFCF9;
+$font-color-dark: #040F0F;
+$second-color: #EEEEEE;
+
+$main-color-darker: darken($main-color, 10%);
+$main-color-lighter: lighten($main-color, 10%);
+
+$main-background-darker: darken($main-background, 10%);
+$main-background-lighter: lighten($main-background, 10%);
+
+$accent-color-darker: darken($accent-color, 10%);
+$accent-color-lighter: lighten($accent-color, 10%);
+
+$font-color-darker: darken($font-color, 10%);
+$font-color-lighter: lighten($font-color, 10%);
+
+$font-color-dark-darker: darken($font-color-dark, 10%);
+$font-color-dark-lighter: lighten($font-color-dark, 10%);
+
+$second-color-darker: darken($second-color, 10%);
+$second-color-lighter: lighten($second-color, 10%);

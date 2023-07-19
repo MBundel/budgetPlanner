@@ -1,0 +1,55 @@
+
+<div class="asListElement" (mouseenter)="showButtonContainer = true" (mouseleave)="showButtonContainer= false">
+  <div>
+
+      <div class="detail" (click)="isEditing = !isEditing" *ngIf="!isEditing">
+        <p>{{ entry.name }}</p>
+        <p>{{ entry.amount }} €</p>
+
+      </div>
+
+<!-- Editing Mode      -->
+      <div *ngIf="isEditing">
+        <div>
+          <label >Name:</label>
+          <input type="text" [(ngModel)]="entry.name">
+        </div>
+        <div>
+          <label>Amount:</label>
+          <input type="text" [(ngModel)]="entry.amount">
+        </div>
+        <div>
+          <label>Category:</label>
+          <input type="text" [(ngModel)]="entry.category" [placeholder]="entry.category">
+
+        </div>
+
+
+      </div>
+
+  </div>
+  <div class="button-container" *ngIf="showButtonContainer">
+
+
+    <app-button
+                [id]="entry.id"
+                [entry] = entry
+                [category]="category ?? entry.category"
+                [debit]="debit ?? entry.debit"
+                [btnName]=" isEditing ? 'save' : 'edit'"
+                (click)="isEditing = !isEditing"
+
+                                                >
+
+    </app-button>
+
+    <app-button  [id]="entry.id"
+                 [btnName]=" isEditing ? 'cancel' : 'delete'"
+
+    ></app-button>
+  </div>
+</div>
+
+<div class="A">
+  <div class="B"></div>
+</div>
