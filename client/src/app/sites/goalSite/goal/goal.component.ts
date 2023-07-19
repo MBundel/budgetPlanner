@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import More from 'highcharts/highcharts-more';
 import {HighchartsChartModule} from 'highcharts-angular';
-import {Entry, EntryList} from "../goalInterfaces";
+import {Entry} from "../goalInterfaces";
 import {HttpClient} from "@angular/common/http";
 import {CalculateService} from "../../../services/calculate.service";
 
