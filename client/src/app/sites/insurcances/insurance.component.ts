@@ -46,7 +46,7 @@ export class InsuranceComponent implements OnInit {
       this.container = 'tileContainer';
       this.assetLi = 'assets/tiles.png';
     } else {
-      this.classLayout = 'asListElement g-padding';
+      this.classLayout = 'asListElement g-padding g-flex';
       this.container = 'listContainer';
       this.assetLi = 'assets/list.png';
     }

@@ -43,7 +43,7 @@ export class GoalComponent implements OnInit {
     this.http.get<Entry[]>('/api/goal').subscribe(allEntries => {
       this.allEntries = allEntries;
       this.calculateMonthsUntilDeadline()
-      // console.log(this.allEntries)
+
     });
   }
 

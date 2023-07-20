@@ -7,16 +7,23 @@
   margin: 20px;
 }
 
-.icon-s{
-  width: 3vw;
-  height: auto;
+.icon {
 
+  &-s {
+    width: 75px;
+    height: auto;
+  }
+
+  &:hover {
+    transform: rotate(90deg);
+    transition-duration: 200ms;
+  }
 }
 
-.hoverScale{
+.g-hoverScale{
   transition: 200ms;
 }
-.hoverScale:hover{
+.g-hoverScale:hover{
   scale: 1.1;
   transition: 200ms;
 }
@@ -26,9 +33,20 @@
   min-width: 50px;
   min-height: 50px;
   max-width: fit-content;
+  background: $main-color;
   border: 1px solid $main-color;
   border-radius: 15px;
   justify-content: center;
   align-items: center;
+}
+.g-container:hover{
+  background: $accent-color;
+}
+
+
+.g-flex {
+    display: flex;
+    flex-wrap: wrap; /* Erlaubt das Umbruchverhalten bei zu vielen Elementen */
+    justify-content: flex-start; /* Linksbündige Ausrichtung */
 
 }

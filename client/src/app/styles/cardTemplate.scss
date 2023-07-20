@@ -1,8 +1,7 @@
 @use "colors" as *;
 
-
 .asListElement {
-  background-color: transparent;
+  background-color: $main-theme-l1;
   color: $font-color;
   width: 80%;
   max-width: 100vw;
@@ -10,21 +9,17 @@
   font-size: large;
   transform: scale(1.0);
   transition-duration: 200ms;
-  border: $main-color 1px solid;
   border-radius: 10px;
-}
-.asListElement:hover{
-  background-image: $main-background;
-  color: black;
-  transform: scale(1.05);
-  transition-duration: 200ms;
 
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 200ms;
+  }
 }
 
 .button-container {
   display: flex;
   justify-content: flex-end;
-
 }
 
 .clickableRegion {
@@ -36,9 +31,10 @@
   display: flex;
   justify-content: space-between;
 }
-.opener{
+
+.opener {
   border-radius: 10px;
-  background: linear-gradient(to right, $main-color-lighter, $main-color);
+  background: $main-theme;
 }
 
 .clickableRegion > p {
@@ -48,8 +44,11 @@
 
 .link {
   border-radius: 10px;
-  background: linear-gradient(to right, $accent-color-lighter, $accent-color);
+  background: $main-theme-d1;
+  color: $accent-color-l2;
+
 }
+
 .asCard {
   display: flex;
   flex-direction: column;
@@ -59,17 +58,18 @@
   width: 150px;
   height: 200px;
   padding: 10px;
-  border: $main-color 2px solid;
+  background: $main-theme;
   border-radius: 20px;
   color: $font-color;
   text-align: center;
   overflow: hidden;
-}
 
-.asCard:hover {
-  background-image: radial-gradient(circle at center, $main-color-lighter, $main-color);
-  transform: scale(1.05);
-  transition-duration: 200ms;
+  &:hover {
+    background-image: radial-gradient(circle at center, $accent-color-l1, $accent-color);
+    transform: scale(1.05);
+    transition-duration: 200ms;
+    box-shadow: -2px 2px 8px rgba($main-theme-d3, .5);
+  }
 }
 
 .listContainer {
@@ -78,18 +78,13 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
-}
 
-
-.listContainer > * {
-  display: flex;
-
+  > * {
+    display: flex;
+  }
 }
 
 .tileContainer {
   display: flex;
   justify-content: center;
-
 }
-
-

@@ -1,5 +1,5 @@
-<div class="g-container hoverScale g-margin">
-  <img  (click)="setLayout()" class="icon-s" [src]='assetLi' alt="" height="1200" width="1200">
+<div class="g-container g-hoverScale g-margin">
+  <img (click)="setLayout()" class="icon-s" [src]='assetLi' alt="" height="1200" width="1200">
 </div>
 
 
@@ -7,39 +7,41 @@
 
   <div *ngFor="let entry of allEntries" [class]='classLayout'>
     <div (click)="isDetail = !isDetail">
+      <div>
 
-      <h3>{{ entry.insuranceName }}  </h3>
-      <!--      <p>{{ entry.percentageCover }} %</p>-->
-      <!--      <p>{{ entry.amount }}€ </p>-->
-      <!--      <p>{{ entry.payPeriodPerYear }} Raten pro Jahr</p>-->
+        <h3>{{ entry.insuranceName }}  </h3>
+        <!--      <p>{{ entry.percentageCover }} %</p>-->
+        <!--      <p>{{ entry.amount }}€ </p>-->
+        <!--      <p>{{ entry.payPeriodPerYear }} Raten pro Jahr</p>-->
 
-      <div class="cover">
-        <div class="outer">
-          <svg id="myCircle" xmlns="http://www.w3.org/2000/svg" width="160px" height="160px">
-            <defs>
-              <linearGradient id="GradientColor">
-                <stop offset="0%" stop-color="#e91e63" />
-                <stop offset="100%" stop-color="#673ab7" />
-              </linearGradient>
-            </defs>
-            <circle class="circle" cx="80" cy="80" r="70" stroke-linecap="round"></circle>
-          </svg>
-          <div class="number">{{ entry.percentageCover }}%</div>
+        <div class="cover">
+          <div class="outer">
+            <svg id="myCircle" xmlns="http://www.w3.org/2000/svg" width="160px" height="160px">
+              <defs>
+                <linearGradient id="GradientColor">
+                  <stop offset="0%" stop-color="#e91e63"/>
+                  <stop offset="100%" stop-color="#673ab7"/>
+                </linearGradient>
+              </defs>
+              <circle class="circle" cx="80" cy="80" r="70" stroke-linecap="round"></circle>
+            </svg>
+            <div class="number">{{ entry.percentageCover }}%</div>
+          </div>
         </div>
       </div>
 
+      <div>
+        <ng-container *ngIf="isList ">
 
-      <ng-container *ngIf="isList ">
+          <p> Company Name:        {{ entry.companyName }}</p>
+          <p> End of Contract:     {{ entry.endOfContract | date }}</p>
+          <p> Pay Day:             {{ entry.payDay | date }}</p>
+          <p> Active:              {{ entry.isActive }}</p>
+          <p> Necessary:           {{ entry.isNecessary }}</p>
+          <p> Created At:          {{ entry.createdAt | date }}</p>
 
-        <p> Company Name:        {{ entry.companyName }}</p>
-        <p> End of Contract:     {{ entry.endOfContract | date }}</p>
-        <p> Pay Day:             {{ entry.payDay | date }}</p>
-        <p> Active:              {{ entry.isActive }}</p>
-        <p> Necessary:           {{ entry.isNecessary }}</p>
-        <p> Created At:          {{ entry.createdAt | date }}</p>
-
-      </ng-container>
-
+        </ng-container>
+      </div>
     </div>
   </div>
 </div>
