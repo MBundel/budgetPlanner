@@ -1,0 +1,40 @@
+@use "../colors" as *;
+
+.asCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  width: 150px;
+  height: 200px;
+  padding: 10px;
+  background: $main-theme;
+  border-radius: 20px;
+  color: $font-color;
+  text-align: center;
+  overflow: hidden;
+
+  &:hover {
+    background-image: radial-gradient(circle at center, $accent-color-l1, $accent-color);
+    transform: scale(1.05);
+    transition-duration: 200ms;
+    box-shadow: -2px 2px 8px rgba($main-theme-d3, .5);
+  }
+}
+
+.tileContainer {
+   display: flex;
+   justify-content: center;
+ }
+.plus {
+  background-image: radial-gradient(circle at center, $main-theme-l1, $main-theme);
+  position: relative;
+  &:hover{
+    background-image: radial-gradient(circle at center, $main-color-l1, $main-color);
+  }
+}
+img {
+  height: 100px;
+  width: 100px;
+}

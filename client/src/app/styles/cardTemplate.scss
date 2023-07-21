@@ -1,21 +1,8 @@
 @use "colors" as *;
+@import "cardComponents/listElement";
+@import "cardComponents/cardElement"; // and tile-elements
+@import "cardComponents/message";
 
-.asListElement {
-  background-color: $main-theme-l1;
-  color: $font-color;
-  width: 80%;
-  max-width: 100vw;
-  margin: 10px auto;
-  font-size: large;
-  transform: scale(1.0);
-  transition-duration: 200ms;
-  border-radius: 10px;
-
-  &:hover {
-    transform: scale(1.05);
-    transition-duration: 200ms;
-  }
-}
 
 .button-container {
   display: flex;
@@ -49,42 +36,11 @@
 
 }
 
-.asCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
-  width: 150px;
-  height: 200px;
-  padding: 10px;
-  background: $main-theme;
-  border-radius: 20px;
-  color: $font-color;
-  text-align: center;
-  overflow: hidden;
 
-  &:hover {
-    background-image: radial-gradient(circle at center, $accent-color-l1, $accent-color);
-    transform: scale(1.05);
-    transition-duration: 200ms;
-    box-shadow: -2px 2px 8px rgba($main-theme-d3, .5);
-  }
-}
 
-.listContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
 
-  > * {
-    display: flex;
-  }
-}
 
-.tileContainer {
-  display: flex;
-  justify-content: center;
-}
+
+
+
+

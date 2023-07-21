@@ -1,0 +1,57 @@
+@use "../colors" as *;
+
+input{
+  background: transparent;
+  font-family: sans-serif;
+  color: $font-color;
+  width: 100%;
+  &[type="text"]{
+    font-size: 20px;
+
+  }
+}
+
+.buttonClass {
+  font-size: 15px;
+  width: 150px;
+  height: 50px;
+  border-width: 0;
+  color: $font-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 1px;
+  background: $main-color;
+  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+  transform: scale(1);
+  transition-duration: 500ms;
+
+  &_s{
+    @extend .buttonClass;
+    margin: 2px;
+    width: 75px;
+    height: 25px;
+   }
+
+  &:hover {
+    background: $accent-color;
+    color: $main-theme ;
+    transform: scale(1.1);
+    transition-duration: 500ms;
+  }
+
+  &:active {
+    transform: scale(1.0);
+    transition-duration: 200ms;
+    width: 150px;
+    font-size: 0;
+    background: $main-color;
+    box-shadow: 0 2px 4px $main-background-d3 ;
+  }
+}
+
+

@@ -1,0 +1,30 @@
+@use "../colors" as *;
+
+.asListElement {
+  background-color: $main-theme-l1;
+  color: $font-color;
+  width: 80%;
+  max-width: 100vw;
+  margin: 10px auto;
+  font-size: large;
+  transform: scale(1.0);
+  transition-duration: 200ms;
+  border-radius: 10px;
+
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 200ms;
+  }
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+
+  > * {
+    display: flex;
+  }
+}

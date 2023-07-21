@@ -66,7 +66,7 @@ export class GoalComponent implements OnInit {
         text: 'GOAL PLANNER',
         align: 'center',
         style: {
-          color: '#FFFFFF',
+          color: '#D5A021',
         },
       },
       accessibility: {

@@ -1,19 +1,10 @@
 <app-goal></app-goal>
-
-<br>
-<div class="container">
-  <h3> mtl.freies Budget:{{foreignSum}} € </h3>
-  <p>...........</p>
-  <br>
-  <h3> davon genutzt: {{sum}} €</h3>
+<div class="g-container">
+  <h3> mtl.freies Budget: {{ foreignSum }} € </h3>
 </div>
-
-<div class="container">
-<ng-container *ngFor="let entry of allEntries">
+<div class="g-container">
+  <ng-container *ngFor="let entry of allEntries">
     <app-goal-card [entry]="entry"></app-goal-card>
   </ng-container>
-  <div class="plus asCard" (click)="addNewGoal()">
-    <img src="assets/whiteplus.png" alt="">
-  </div>
+  <app-add-button-card (onNewGoal)="addNewGoal()"></app-add-button-card>
 </div>
-

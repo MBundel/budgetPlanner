@@ -1,0 +1,72 @@
+@use "../colors" as *;
+
+
+.message {
+  position: relative;
+  background: $main-color;
+  rotate: 2deg;
+}
+.message::before,
+.message::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 5px;
+  background-color: $main-color-l3;
+  border-radius: 40%;
+  box-shadow: 0 0 10px 2px $main-color-l2;
+  animation: moveAroundBorder 2s linear infinite;
+}
+.message::before {
+  top: 0;
+  left: 0;
+}
+
+.message::after {
+  top: calc(100% - 5px);
+  left: calc(100% - 5px);
+  animation-delay: 1s;
+}
+
+@keyframes moveAroundBorder {
+  0%, 100% {
+    width: 20px;
+    height: 5px;
+    top: 0;
+    left: 0;
+  }
+  24% {
+    width: 20px;
+    height: 5px;
+  }
+  25% {
+    width: 5px;
+    height: 20px;
+    top: 0;
+    left: calc(100% - 5px);
+  }
+  49% {
+    width: 5px;
+    height: 20px;
+  }
+  50% {
+    width: 20px;
+    height: 5px;
+    top: calc(100% - 5px);
+    left: calc(100% - 5px);
+  }
+  74% {
+    width: 20px;
+    height: 5px;
+  }
+  75% {
+    height: 20px;
+    width: 5px;
+    top: calc(100% - 5px);
+    left: 0;
+  }
+  99% {
+    height: 20px;
+    width: 5px;
+  }
+}

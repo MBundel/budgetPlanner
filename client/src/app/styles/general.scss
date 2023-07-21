@@ -1,9 +1,14 @@
 @use "colors" as *;
-
-.g-padding{
+@import "generalComponents/inputs";
+@import "generalComponents/htmlElements";
+h3{
+  color: $accent-color;
+}
+.g-padding {
   padding-left: 10px;
 }
-.g-margin{
+
+.g-margin {
   margin: 20px;
 }
 
@@ -20,33 +25,37 @@
   }
 }
 
-.g-hoverScale{
+.g-hoverScale {
   transition: 200ms;
 }
-.g-hoverScale:hover{
+
+.g-hoverScale:hover {
   scale: 1.1;
   transition: 200ms;
 }
 
-.g-container{
+.g-container {
   display: flex;
-  min-width: 50px;
-  min-height: 50px;
-  max-width: fit-content;
-  background: $main-color;
-  border: 1px solid $main-color;
-  border-radius: 15px;
   justify-content: center;
   align-items: center;
+  &-colored {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: fit-content;
+    background: $main-color;
+    border: 1px solid $main-color;
+    border-radius: 15px;
+    &:hover {
+      background: $accent-color;
+    }
+  }
 }
-.g-container:hover{
-  background: $accent-color;
-}
-
 
 .g-flex {
-    display: flex;
-    flex-wrap: wrap; /* Erlaubt das Umbruchverhalten bei zu vielen Elementen */
-    justify-content: flex-start; /* Linksbündige Ausrichtung */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 
 }
+
+

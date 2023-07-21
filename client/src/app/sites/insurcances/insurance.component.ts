@@ -1,8 +1,7 @@
-import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Insurance } from './InsuranceInterface';
-
-
+import { layoutButton } from '../../component/button/compButton-interfaces';
 
 @Component({
   selector: 'app-insurances',
@@ -11,16 +10,10 @@ import { Insurance } from './InsuranceInterface';
 })
 export class InsuranceComponent implements OnInit {
   allEntries: Insurance[] = [];
-  isDetail = false;
-  isTile = true;
-  isList = false;
-  classLayout = 'asCard g-padding';
-  container = 'tileContainer';
-  assetLi = 'assets/tiles.png';
-  dashOffset: string = '200';
+  // isDetail = false;
+  layoutData = layoutButton.tile;
 
-
-  constructor(private httpClient: HttpClient, private elementRef: ElementRef, private renderer: Renderer2) {}
+  constructor(private httpClient: HttpClient) { }
 
   fetchEntries() {
     this.httpClient.get<Insurance[]>('/api/insurance').subscribe(allEntries => {
@@ -30,25 +23,11 @@ export class InsuranceComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchEntries();
-    this.changeCSS();
-  }
-  changeCSS() {
-    const element = this.elementRef.nativeElement as HTMLElement;
-    this.renderer.setStyle(element, 'stroke-dashoffset', '10');
   }
 
-  setLayout() {
-    this.isTile = !this.isTile;
-    this.isList = !this.isList;
 
-    if (this.isTile) {
-      this.classLayout = 'asCard g-padding';
-      this.container = 'tileContainer';
-      this.assetLi = 'assets/tiles.png';
-    } else {
-      this.classLayout = 'asListElement g-padding g-flex';
-      this.container = 'listContainer';
-      this.assetLi = 'assets/list.png';
-    }
+  // Receive the emitted layout data from the child component
+  onLayoutChanged(layoutData: any) {
+    this.layoutData = layoutData;
   }
 }

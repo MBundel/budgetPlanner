@@ -21,6 +21,8 @@ import { GoalComponent} from "./sites/goalSite/goal/goal.component";
 import { InsuranceComponent } from './sites/insurcances/insurance.component';
 import { CardTemplateComponent } from './sites/bugetbook/card-template/card-template.component';
 import {NgOptimizedImage} from "@angular/common";
+import { DisplayButtonComponent } from './component/button/display-button/display-button.component';
+import { AddButtonCardComponent } from './component/button/add-button-card/add-button-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import {NgOptimizedImage} from "@angular/common";
     GoalPlannerComponent,
     InsuranceComponent,
     CardTemplateComponent,
+    DisplayButtonComponent,
+    AddButtonCardComponent,
 
 
   ],

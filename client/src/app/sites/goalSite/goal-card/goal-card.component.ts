@@ -7,14 +7,14 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-goal-card',
   templateUrl: './goal-card.component.html',
-  styleUrls: ['../../../styles/cardTemplate.scss']
+  styleUrls: ['../../../styles/cardTemplate.scss', '../../../styles/general.scss']
 })
 export class GoalCardComponent implements OnInit {
   @Input() entry?: Entry;
   isEditMode: boolean = false;
   formattedDeadline: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {

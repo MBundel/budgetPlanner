@@ -6,7 +6,7 @@ import { CalculateService } from "../../../services/calculate.service";
 @Component({
   selector: 'app-goal-planner',
   templateUrl: './goal-planner.component.html',
-  styleUrls: ['./goal-planner.component.scss', '../../../styles/cardTemplate.scss']
+  styleUrls: ['../../../styles/general.scss', '../../../styles/cardTemplate.scss']
 })
 export class GoalPlannerComponent implements OnInit {
   foreignSum: number;
