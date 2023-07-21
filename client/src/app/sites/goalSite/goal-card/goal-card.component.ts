@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Entry } from "../goalInterfaces";
 import { HttpClient } from '@angular/common/http';
 import { formatDate } from '@angular/common';
-import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-goal-card',
