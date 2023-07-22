@@ -1,0 +1,32 @@
+<div (click)="toggleEditMode()">
+  <h3>{{ entry?.insuranceName }}  </h3>
+
+  <div class="cover">
+    <div class="outer">
+      <svg id="myCircle" xmlns="http://www.w3.org/2000/svg" width="160px" height="160px">
+        <defs>
+          <linearGradient id="GradientColor">
+            <stop offset="0%" stop-color="#e91e63"/>
+            <stop offset="100%" stop-color="#673ab7"/>
+          </linearGradient>
+        </defs>
+        <circle class="circle" cx="80" cy="80" r="70" stroke-linecap="round"></circle>
+      </svg>
+      <div class="number">{{ entry?.percentageCover }}%</div>
+    </div>
+  </div>
+</div>
+<!--List with details-->
+<div>
+  <ng-container *ngIf="layoutData.isList ">
+
+    <p> Company Name:        {{ entry?.companyName }}</p>
+    <p> End of Contract:     {{ entry?.endOfContract | date }}</p>
+    <p> Pay Day:             {{ entry?.payDay | date }}</p>
+    <p> Active:              {{ entry?.isActive }}</p>
+    <p> Necessary:           {{ entry?.isNecessary }}</p>
+    <p> Created At:          {{ entry?.createdAt | date }}</p>
+
+  </ng-container>
+</div>
+

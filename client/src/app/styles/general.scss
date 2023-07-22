@@ -1,7 +1,8 @@
 @use "colors" as *;
 @import "generalComponents/inputs";
 @import "generalComponents/htmlElements";
-h3{
+
+.g-accentColor{
   color: $accent-color;
 }
 .g-padding {

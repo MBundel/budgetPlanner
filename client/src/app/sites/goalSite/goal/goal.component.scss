@@ -2,7 +2,7 @@
 @use "../../../styles/colors" as *;
 
 p {
-  color: white;
+  color: $font-color;
 }
 #container,
 .highcharts-data-table table {

@@ -23,6 +23,8 @@ import { CardTemplateComponent } from './sites/bugetbook/card-template/card-temp
 import {NgOptimizedImage} from "@angular/common";
 import { DisplayButtonComponent } from './component/button/display-button/display-button.component';
 import { AddButtonCardComponent } from './component/button/add-button-card/add-button-card.component';
+import {InsuranceCardComponent} from "./sites/insurcances/insurcance-card/insurance-card.component";
+
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { AddButtonCardComponent } from './component/button/add-button-card/add-b
     CardTemplateComponent,
     DisplayButtonComponent,
     AddButtonCardComponent,
+    InsuranceCardComponent,
 
 
   ],
