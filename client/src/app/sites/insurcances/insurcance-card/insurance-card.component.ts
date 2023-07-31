@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Insurance } from '../InsuranceInterface';
-import { layoutButton } from '../../../component/button/compButton-interfaces';
+import {Component, Input, OnInit} from '@angular/core';
+import {Insurance} from '../InsuranceInterface';
+import {layoutButton} from '../../../component/button/compButton-interfaces';
 import {RestApiService} from "../../../services/restApi.service";
 
 @Component({
@@ -40,7 +40,6 @@ export class InsuranceCardComponent implements OnInit {
   }
 
   private async formatDateAsync(date: Date): Promise<string> {
-    const formattedDate = await this.restApiService.formatDateAsync(date, 'dd.MM.yyyy');
-    return formattedDate;
+    return await this.restApiService.formatDateAsync(date, 'dd.MM.yyyy');
   }
 }

@@ -1,66 +1,65 @@
+<div class="form-container">
 
-<section class="vh-100 bg-image">
-  <div class="mask d-flex align-items-start h-100 gradient-custom-3">
-    <div class="container fluid">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="form-container">
-            <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-3" style="text-align: center;">CREATE AN ACCOUNT</h2>
+  <h2>NEUEN ACCOUNT ANLEGEN</h2>
 
-              <p class="text-center text-muted mt-3 mb-0" style="text-align: center;">Already have an account? <a routerLink="/login" class="fw-bold text-body"><u>Login here</u></a></p>
+  <p>Bereits registriert? <a routerLink="/login"><u>Login</u></a></p>
 
-              <form (submit)="save()">
-                <div class="input-group flex-nowrap">
-                  <span class="input-group-text" id="addon-wrapping1">유</span>
-                  <input type="text" id="form3Example1cg" name="username" class="form-control" placeholder="username" [(ngModel)]="newUser.username"/>
-                </div>
-                <div class="error-message" *ngIf="newUser.usernameError">{{ newUser.usernameError }}</div>
-
-
-                <div class="input-group flex-nowrap">
-                  <span class="input-group-text" id="addon-wrapping2">@</span>
-                  <input type="email" id="form3Example3cg" name="email" class="form-control" placeholder="email address" [(ngModel)]="newUser.email"/>
-                </div>
-                <div class="error-message" *ngIf="newUser.emailError">{{ newUser.emailError }}</div>
-
-
-                <div class="input-group flex-nowrap">
-                  <span class="input-group-text" id="addon-wrapping3">┈</span>
-                  <input type="password" id="form3Example4cg" name="password1" class="form-control" placeholder="password" [(ngModel)]="newUser.password1"/>
-                </div>
-                <div class="error-message" *ngIf="newUser.password1Error">{{ newUser.password1Error }}</div>
-
-
-                <div class="input-group flex-nowrap">
-                  <span class="input-group-text" id="addon-wrapping4">┈</span>
-                  <input type="password" id="form3Example4cdg" name="password2" class="form-control" placeholder="repeat your password" [(ngModel)]="newUser.password2"/>
-                </div>
-
-
-                <div class="d-flex justify-content-start">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example1" />
-                  <label class="form-check-label" for="form2Example1"> Get free updates in your inbox </label>
-                </div>
-
-                <div class="d-flex justify-content-start">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example2" />
-                  <label class="form-check-label" for="form2Example2">
-                    I agree to all statements in <a href="#" class="text-body"><u>Terms of service</u></a>
-                  </label>
-                </div>
-
-
-                  <button type="submit"
-                          class="buttonClass_w">REGISTER</button>
-
-
-              </form>
-
-            </div>
-          </div>
-        </div>
-      </div>
+  <form (submit)="save()">
+    <div class="input-group">
+      <span class="input-group-text">유</span>
+      <input type="text" id="username" name="username" class="form-control" placeholder="username"
+             [(ngModel)]="newUser.username"/>
     </div>
-  </div>
-</section>
+    <div class="error-message" *ngIf="newUser.usernameError">{{ newUser.usernameError }}</div>
+
+
+    <div class="input-group">
+      <span class="input-group-text">@</span>
+      <input type="email" id="email" name="email" class="form-control" placeholder="email address"
+             [(ngModel)]="newUser.email"/>
+    </div>
+    <div class="error-message" *ngIf="newUser.emailError">{{ newUser.emailError }}</div>
+
+
+    <div class="input-group">
+      <span class="input-group-text">┈</span>
+      <input type="password" id="password" name="password1" class="form-control" placeholder="password"
+             [(ngModel)]="newUser.password1"/>
+    </div>
+    <div class="error-message" *ngIf="newUser.password1Error">{{ newUser.password1Error }}</div>
+
+
+    <div class="input-group">
+      <span class="input-group-text" id="addon-wrapping4">┈</span>
+      <input type="password" id="form3Example4cdg" name="password2" class="form-control"
+             placeholder="repeat your password" [(ngModel)]="newUser.password2"/>
+    </div>
+
+
+    <div class="checkbox-container">
+      <label class="form-check-label" for="newsletter"> Ich möchte regelmäßig über Updates informiert werden.
+      <input class="" type="checkbox" value="" id="newsletter"/>
+      </label>
+    </div>
+
+    <div class="checkbox-container">
+      <label  for="termsOfAgreement">
+       Ich stimme den <a  href="#" target="_blank" class="text-body"><u>Benutzungsbedingungen zu</u></a>
+      <input  type="checkbox" value="" id="termsOfAgreement"/>
+      </label>
+    </div>
+
+    <button type="submit"
+            class="buttonClass_w">REGISTER
+    </button>
+
+
+  </form>
+
+</div>
+
+
+
+
+
+

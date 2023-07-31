@@ -54,6 +54,7 @@
   }
 }
 
+
 .g-flex {
   display: flex;
   flex-wrap: wrap;
@@ -66,4 +67,14 @@
   margin: auto;
 }
 
+.checkbox-container{
+
+  grid-template-columns: auto;
+  border:  1px solid $second-background ;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 5px;
+
+
+}
 

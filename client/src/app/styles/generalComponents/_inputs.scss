@@ -2,12 +2,15 @@
 
 input{
   background: transparent;
-  font-family: sans-serif;
+  font-family: mainFont, sans-serif;
   color: $font-color;
   width: 100%;
-  &[type="text"]{
+  &[type="text"],
+  &[type="email"],
+  &[type="password"]{
     font-size: 20px;
-
+    border: none;
+    height: 22px;
   }
 }
 

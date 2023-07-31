@@ -1,35 +1,35 @@
+<div class="form-container">
+
+    <h2>WELCOME BACK </h2>
+    <h1> シ </h1>
+  <br>Wir freuen uns, dich hier begrüßen zu dürfen.<br>
+  <br>Unsere App bietet dir umfangreiche Funktionen zur Verwaltung deiner Finanzen. Du kannst Budgets erstellen,
+  Ausgaben verfolgen, Sparziele setzen und vieles mehr.<br>
+  <br>Viel Erfolg und eine gute Zeit mit deinem Budgetbook!<br>
+
+  <div *ngIf="!sessionService.isLoggedIn()">
+    <div>
+      <form (submit)="login()">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text">유</span>
+          <input type="text" id="username" name="username" class="form-control" placeholder="username"
+                 [(ngModel)]="user.username" required/>
+        </div>
+
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text">┈</span>
+          <input type="password" id="password1" name="password1" class="form-control" placeholder="password"
+                 [(ngModel)]="user.password1" required/>
+        </div>
 
 
-          <div class="welcome-text container">
+        <button type="submit" class="buttonClass_w">LOGIN</button>
 
-            <h2 >WELCOME BACK </h2>
-            <h1> シ </h1>
 
-            <br>Wir freuen uns, dich hier begrüßen zu dürfen.<br>
-            <br>Unsere App bietet dir umfangreiche Funktionen zur Verwaltung deiner Finanzen. Du kannst Budgets erstellen, Ausgaben verfolgen, Sparziele setzen und vieles mehr.<br>
-            <br>Viel Erfolg und eine gute Zeit mit deinem Budgetbook!<br>
+      </form>
+      <div>{{errorMessage}}</div>
+    </div>
+  </div>
 
-            <div *ngIf="!sessionService.isLoggedIn()">
-              <div>
-                <form (submit)="login()">
-                  <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="username">유</span>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="username" [(ngModel)]="user.username" required/>
-                  </div>
-
-                  <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="password1">┈</span>
-                    <input type="password" id="password1" name="password1" class="form-control" placeholder="password" [(ngModel)]="user.password1" required/>
-                  </div>
-
-                  <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn w-100">LOGIN</button>
-                  </div>
-
-                </form>
-                <div>{{errorMessage}}</div>
-              </div>
-            </div>
-
-          </div>
+</div>
 
