@@ -1,0 +1,15 @@
+@use 'colors' as * ;
+
+.form-container {
+  padding: 40px;
+  min-height: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: justify;
+  font-size: 20px;
+  border: solid 3px #982649;
+  border-radius: 20px;
+  background: $second-background-l1;
+  color: $second-background-d1;
+
+}

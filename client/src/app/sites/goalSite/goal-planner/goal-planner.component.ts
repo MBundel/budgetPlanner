@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Entry } from "../goalInterfaces";
+import { GoalEntry } from "../goalInterfaces";
 import { CalculateService } from "../../../services/calculate.service";
 
 @Component({
@@ -11,7 +11,7 @@ import { CalculateService } from "../../../services/calculate.service";
 export class GoalPlannerComponent implements OnInit {
   foreignSum: number;
   sum: number = 0;
-  allEntries: Entry[] = [];
+  allEntries: GoalEntry[] = [];
 
   constructor(private http: HttpClient, private calcService: CalculateService) {
     this.foreignSum = calcService.sum;
@@ -23,13 +23,13 @@ export class GoalPlannerComponent implements OnInit {
   }
 
   fetchEntries(): void {
-    this.http.get<Entry[]>('/api/goal').subscribe(allEntries => {
+    this.http.get<GoalEntry[]>('/api/goal').subscribe(allEntries => {
       this.allEntries = allEntries;
     });
   }
 
   addNewGoal(): void {
-    const newGoal: Entry = {
+    const newGoal: GoalEntry = {
       name: 'neues Ziel',
       cost: 1,
       deadLine: new Date().toISOString()

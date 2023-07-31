@@ -1,54 +1,46 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Insurance} from "../InsuranceInterface";
-import {HttpClient} from "@angular/common/http";
-import {layoutButton} from "../../../component/button/compButton-interfaces";
-import {formatDate} from "@angular/common";
-
+import { Component, Input, OnInit } from '@angular/core';
+import { Insurance } from '../InsuranceInterface';
+import { layoutButton } from '../../../component/button/compButton-interfaces';
+import {RestApiService} from "../../../services/restApi.service";
 
 @Component({
   selector: 'app-insurance-card',
   templateUrl: './insurance-card.component.html',
-  styleUrls: ['./insurance-card.component.css']
+  styleUrls: ['./insurance-card.component.css'],
 })
-export class InsuranceCardComponent implements OnInit{
-
+export class InsuranceCardComponent implements OnInit {
   @Input() entry?: Insurance;
-  private isEditMode:boolean = false;
+  private isEditMode: boolean = false;
   @Input() layoutData = layoutButton.tile;
   formattedEndOfContract: string = '';
 
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private restApiService: RestApiService) {}
 
   toggleEditMode(): void {
     this.isEditMode = !this.isEditMode;
     if (!this.isEditMode && this.entry) {
-      this.updateEntry();
+      // Perform any actions needed when exiting edit mode.
     }
-  }
-  updateEntry(): void {
-    if (!this.entry?.id) {
-      return;
-    }
-    this.http.put(`/api/goal/${this.entry.id}`, this.entry).subscribe(
-      (response) => {
-        console.log('Eintrag erfolgreich aktualisiert:', response);
-      },
-      (error) => {
-        console.error('Fehler beim Aktualisieren des Eintrags:', error);
-      }
-    );
   }
 
   ngOnInit(): void {
     this.formatDeadline();
   }
 
-  formatDeadline(): void {
+  async formatDeadline(): Promise<void> {
     if (this.entry?.endOfContract) {
-      const date = new Date(this.entry.endOfContract);
-      this.formattedEndOfContract = formatDate(date, 'dd.MM.yyyy', 'en-US');
+      try {
+        const date = new Date(this.entry.endOfContract);
+        this.formattedEndOfContract = await this.formatDateAsync(date);
+      } catch (error) {
+        console.error('Error while formatting date:', error);
+        this.formattedEndOfContract = 'Invalid Date';
+      }
     }
+  }
+
+  private async formatDateAsync(date: Date): Promise<string> {
+    const formattedDate = await this.restApiService.formatDateAsync(date, 'dd.MM.yyyy');
+    return formattedDate;
   }
 }

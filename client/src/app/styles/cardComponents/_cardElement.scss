@@ -14,12 +14,13 @@
   color: $font-color;
   text-align: center;
   overflow: hidden;
+  box-shadow: -2px 2px 8px rgba($main-theme-d3, .5);
 
   &:hover {
     background-image: radial-gradient(circle at center, $accent-color-l1, $accent-color);
     transform: scale(1.05);
     transition-duration: 200ms;
-    box-shadow: -2px 2px 8px rgba($main-theme-d3, .5);
+    box-shadow: -2px 2px 16px rgba($main-theme-d3, .5);
 
   }
 }

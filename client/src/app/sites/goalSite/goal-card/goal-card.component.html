@@ -2,6 +2,7 @@
   <ng-container *ngIf="!isEditMode; else editModeTemplate">
     <h2>{{entry?.name}}</h2>
     <p >{{entry?.cost}} €</p>
+    <p >{{savingRatio}}€/m</p>
     <p >{{ formattedDeadline }}</p>
   </ng-container>
 

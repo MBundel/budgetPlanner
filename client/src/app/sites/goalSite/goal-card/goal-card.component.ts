@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Entry } from "../goalInterfaces";
-import { HttpClient } from '@angular/common/http';
-import { formatDate } from '@angular/common';
+import {Component, Input, OnInit} from '@angular/core';
+import {GoalEntry} from "../goalInterfaces";
+import {formatDate} from '@angular/common';
+import {RestApiService} from "../../../services/restApi.service";
 
 
 @Component({
@@ -10,21 +10,36 @@ import { formatDate } from '@angular/common';
   styleUrls: ['../../../styles/cardTemplate.scss', '../../../styles/general.scss']
 })
 export class GoalCardComponent implements OnInit {
-  @Input() entry?: Entry;
+  @Input() entry?: GoalEntry;
   isEditMode: boolean = false;
   formattedDeadline: string = '';
+  monthAhead: any = 0;
+  today: Date = new Date(Date.now());
 
-  constructor(private http: HttpClient) {
+  savingRatio: number = 0;
+
+
+  constructor(private apiService: RestApiService) {
   }
 
   ngOnInit(): void {
     this.formatDeadline();
+
   }
 
   toggleEditMode(): void {
     this.isEditMode = !this.isEditMode;
     if (!this.isEditMode && this.entry) {
-      this.updateEntry();
+      this.apiService.putData(this.entry.id, 'goal', this.entry).subscribe(response => {
+      });
+    }
+  }
+
+  deleteEntry(): void {
+    if (this.entry) {
+      this.apiService.deleteData(this.entry.id, 'goal').subscribe(response => {
+
+      });
     }
   }
 
@@ -32,39 +47,19 @@ export class GoalCardComponent implements OnInit {
     if (this.entry?.deadLine) {
       const date = new Date(this.entry.deadLine);
       this.formattedDeadline = formatDate(date, 'dd.MM.yyyy', 'en-US');
-    }
-  }
 
-  updateEntry(): void {
-    if (!this.entry?.id) {
-      return;
-    }
-    this.http.put(`/api/goal/${this.entry.id}`, this.entry).subscribe(
-      (response) => {
-        console.log('Eintrag erfolgreich aktualisiert:', response);
-      },
-      (error) => {
-        console.error('Fehler beim Aktualisieren des Eintrags:', error);
+      let monthNum = Math.floor((date.getTime() - this.today.getTime()) / (1000 * 60 * 60 * 24 * 30.44))
+
+      if (monthNum < 0) {
+          this.monthAhead = 0
+          this.savingRatio = 0;
+
+      } else {
+          this.monthAhead = monthNum;
+          this.savingRatio = Math.round(this.entry.cost / monthNum);
       }
-    );
-  }
-
-  deleteEntry(): void {
-    if (!this.entry?.id) {
-      return;
     }
-
-    this.http.delete(`/api/goal/${this.entry.id}`).subscribe(
-      (response) => {
-        console.log('Eintrag erfolgreich gelöscht:', response);
-        window.location.reload();
-
-      },
-      (error) => {
-        console.error('Fehler beim Löschen des Eintrags:', error);
-      }
-    );
-
-
   }
+
+
 }

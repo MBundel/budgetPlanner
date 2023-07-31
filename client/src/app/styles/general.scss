@@ -1,6 +1,8 @@
 @use "colors" as *;
 @import "generalComponents/inputs";
 @import "generalComponents/htmlElements";
+@import "generalComponents/button";
+@import "global";
 
 .g-accentColor{
   color: $accent-color;
@@ -57,6 +59,11 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 
+}
+
+.g-center{
+  width: 60%;
+  margin: auto;
 }
 
 

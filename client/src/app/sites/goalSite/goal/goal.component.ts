@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import More from 'highcharts/highcharts-more';
 import {HighchartsChartModule} from 'highcharts-angular';
-import {Entry} from "../goalInterfaces";
+import {GoalEntry} from "../goalInterfaces";
 import {HttpClient} from "@angular/common/http";
 import {CalculateService} from "../../../services/calculate.service";
 
@@ -21,8 +21,8 @@ export class GoalComponent implements OnInit {
   deadline = "2023-12-31T23:59:59Z";
   monthsUntilDeadline?: number;
 
-  allEntries: Entry[] = []
-  entry?: Entry;
+  allEntries: GoalEntry[] = []
+  entry?: GoalEntry;
   goalData: number[][] = [];
   budgetData: number[][] = [];
   foreignSum: number;
@@ -40,7 +40,7 @@ export class GoalComponent implements OnInit {
 
 
   fetchEntries(): void {
-    this.http.get<Entry[]>('/api/goal').subscribe(allEntries => {
+    this.http.get<GoalEntry[]>('/api/goal').subscribe(allEntries => {
       this.allEntries = allEntries;
       this.calculateMonthsUntilDeadline()
 
@@ -206,7 +206,7 @@ export class GoalComponent implements OnInit {
   calculateMonthsUntilDeadline() {
     const today = new Date();
 
-    this.allEntries.forEach((entry: Entry) => {
+    this.allEntries.forEach((entry: GoalEntry) => {
       const deadlineDate = new Date(entry.deadLine);
       const diffInMonths = (deadlineDate.getFullYear() - today.getFullYear()) * 12 +
         (deadlineDate.getMonth() - today.getMonth());

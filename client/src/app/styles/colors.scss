@@ -1,5 +1,5 @@
 
-//Scheme 1 DarkMode
+//Scheme 1
 $main-color:        #982649;
 $main-background:   #EEEEEE;
 $accent-color:      #D5A021;
@@ -8,13 +8,17 @@ $font-color-dark:   #040F0F;
 $main-theme:        #273469;
 $second-background: #607B7D;
 
-$main-color-darker:           darken($main-color, 10%);
-$main-color-lighter:          lighten($main-color, 10%);
+$main-color-d1:               darken($main-color, 10%);
+$main-color-l1:               lighten($main-color, 10%);
+$main-color-l2:               lighten($main-color, 20%);
+$main-color-l3:               lighten($main-color, 30%);
 
-$main-background-darker:      darken($main-background, 10%);
-$main-background-lighter:     lighten($main-background, 10%);
+$main-background-d1:          darken($main-background, 10%);
+$main-background-d2:          darken($main-background,  20%);
+$main-background-d3:          darken($main-background,  30%);
+$main-background-l1:          lighten($main-background, 10%);
 
-$accent-color-darker:         darken($accent-color,  10%);
+$accent-color-d1:             darken($accent-color,  10%);
 $accent-color-l1:             lighten($accent-color, 10%);
 $accent-color-l2:             lighten($accent-color, 20%);
 $accent-color-l3:             lighten($accent-color, 30%);
@@ -25,63 +29,9 @@ $main-theme-d3:               darken($main-theme, 20%);
 $main-theme-l1:               lighten($main-theme, 10%);
 $main-theme-l2:               lighten($main-theme, 20%);
 
-$second-background-darker:    darken($second-background, 20%);
-$second-background-lighter:   lighten($second-background, 20%);
-
-$desired-hue-difference: 20deg;
-
-//$main-background-d1: adjust-hue($main-background, $desired-hue-difference);
-//$main-background-d2: adjust-hue($main-background, -2 * $desired-hue-difference);
-//$main-background-d3: adjust-hue($main-background, -3 * $desired-hue-difference);
-
-//$main-background-l1: adjust-hue($main-background, $desired-hue-difference);
-//$main-background-l2: adjust-hue($main-background, 2 * $desired-hue-difference);
-//$main-background-l3: adjust-hue($main-background, 3 * $desired-hue-difference);
-
-//$main-background-s1: adjust-hue($main-background, -0.5 * $desired-hue-difference);
-//$main-background-s2: adjust-hue($main-background, -1 * $desired-hue-difference);
-//$main-background-s3: adjust-hue($main-background, 10 * $desired-hue-difference);
-
-$main-background-d1: #1D284C;
-$main-background-d2: #142036;
-$main-background-d3: #0D162B;
-
-$main-background-l1: #344C8D;
-$main-background-l2: #4059A7;
-$main-background-l3: #4C66C2;
-
-$main-background-s1: #293B6E;
-$main-background-s2: #2A4183;
-$main-background-s3: #2B478D;
-
-$main-background-u1: #696982;
-
-$main-color-d1:      #7A1E39;
-$main-color-d2:      #61182B;
-$main-color-d3:      #4A1421;
-
-$main-color-l1:      #B02A58;
-$main-color-l2:      #CA305F;
-$main-color-l3:      #E03565;
-
-$main-color-s1:      #932646;
-$main-color-s2:      #8D2755;
-$main-color-s3:      #882768;
+$second-background-d1:        darken($second-background, 30%);
+$second-background-l1:        lighten($second-background, 35%);
 
 
-//
-//Entfärbung durch Verringerung der Sättigung um 50%:
-//
-//  #696982
-//  #646672
-//  #5F5C63
-//  Entfärbung durch Verringerung der Sättigung um 70%:
-//
-//  #9799A9
-//  #8C8E9B
-//  #818493
-//  Entfärbung durch Verringerung der Sättigung um 90%:
-//
-//  #D2D3D8
-//  #BEBFC6
-//  #AAAAAF
+
+
