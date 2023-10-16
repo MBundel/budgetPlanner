@@ -6,6 +6,8 @@ import { formatDate } from '@angular/common';
 @Injectable({
   providedIn: 'root',
 })
+
+// nur für Backend
 export class RestApiService {
   private readonly apiBaseUrl = '/api';
 
