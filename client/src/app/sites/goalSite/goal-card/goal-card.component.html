@@ -7,9 +7,9 @@
   </ng-container>
 
   <ng-template #editModeTemplate>
-    <input *ngIf="entry" [(ngModel)]="entry.name" type="text"     (click)="$event.stopPropagation()" (blur)="toggleEditMode()">
-    <input *ngIf="entry" [(ngModel)]="entry.cost" type="number"   (click)="$event.stopPropagation()" (blur)="toggleEditMode()">
-    <input *ngIf="entry" [(ngModel)]="entry.deadLine" type="date" (click)="$event.stopPropagation()" (blur)="toggleEditMode()">
+    <input *ngIf="entry" [(ngModel)]="entry.name"     type="text"     (click)="$event.stopPropagation()" (blur)="toggleEditMode()">
+    <input *ngIf="entry" [(ngModel)]="entry.cost"     type="number"   (click)="$event.stopPropagation()" (blur)="toggleEditMode()">
+    <input *ngIf="entry" [(ngModel)]="entry.deadLine" type="date"     (click)="$event.stopPropagation()" (blur)="toggleEditMode()">
 
     <button class="buttonClass_s" (click)="deleteEntry()">Delete</button>
     <button class="buttonClass_s" (click)="isEditMode = !isEditMode">Cancel</button>

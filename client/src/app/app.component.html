@@ -1,8 +1,8 @@
 
 <div class="container">
+
+<!--  NAVBAR  -->
   <div class="nav">
-
-
     <div *ngIf="sessionService.isLoggedIn()">
       <a routerLink="/budgetBook" class="buttonClass">BUDGET BOOK</a>
     </div>
@@ -12,14 +12,14 @@
     <div *ngIf="sessionService.isLoggedIn()">
       <a routerLink="/insurances" class="buttonClass">INSURANCES</a>
     </div>
+    <div *ngIf="sessionService.isLoggedIn()">
+      <a routerLink="/investment" class="buttonClass">INVESTMENT</a>
+    </div>
     <div *ngIf="!sessionService.isLoggedIn()">
       <a routerLink="/registration" class="buttonClass">REGISTRATION</a>
     </div>
     <div *ngIf="!sessionService.isLoggedIn()">
       <a routerLink="/login" class="buttonClass">LOG IN</a>
-    </div>
-    <div *ngIf="sessionService.isLoggedIn()">
-      <button class="buttonClass" (click)="logout()">LOGOUT</button>
     </div>
   </div>
   <br> <br>
