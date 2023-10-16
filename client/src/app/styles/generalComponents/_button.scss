@@ -9,7 +9,6 @@
 
 }
 
-
 .buttonClass {
   font-size: 15px;
   width: 150px;
@@ -52,9 +51,9 @@
   }
 
   &:active {
-    transform: scale(1.0);
+    transform: scale3d(0.9, 1, 1);
     transition-duration: 200ms;
-    width: 150px;
+
     font-size: 0;
     background: $main-color;
     box-shadow: 0 2px 4px $main-background-d3 ;
