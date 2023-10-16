@@ -11,6 +11,7 @@ import {SessionComponent}           from "./services/session/session.component";
 import {HomeComponent}              from "./sites/home/home.component";
 import {GoalPlannerComponent}       from "./sites/goalSite/goal-planner/goal-planner.component";
 import {InsuranceComponent}       from "./sites/insurcances/insurance.component";
+import {InvestmentComponent} from "./sites/investment/investment.component";
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:"success",                  component: SuccessComponent},
   {path:"login",                    component: LoginComponent},
   {path:"session",                  component: SessionComponent},
-  {path:"insurances",               component: InsuranceComponent}
+  {path:"insurances",               component: InsuranceComponent},
+  {path:"investment",               component: InvestmentComponent},
 ];
 
 @NgModule({

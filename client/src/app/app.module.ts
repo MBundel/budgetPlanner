@@ -24,6 +24,8 @@ import {NgOptimizedImage} from "@angular/common";
 import { DisplayButtonComponent } from './component/button/display-button/display-button.component';
 import { AddButtonCardComponent } from './component/button/add-button-card/add-button-card.component';
 import {InsuranceCardComponent} from "./sites/insurcances/insurcance-card/insurance-card.component";
+import { InvestmentComponent } from './sites/investment/investment.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import {InsuranceCardComponent} from "./sites/insurcances/insurcance-card/insura
     DisplayButtonComponent,
     AddButtonCardComponent,
     InsuranceCardComponent,
+    InvestmentComponent,
 
 
   ],
@@ -56,6 +59,8 @@ import {InsuranceCardComponent} from "./sites/insurcances/insurcance-card/insura
     HighchartsChartModule,
     GoalComponent,
     NgOptimizedImage,
+    MatTableModule,
+
 
   ],
   providers: [],
