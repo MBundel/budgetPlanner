@@ -26,6 +26,33 @@ export class InvestmentComponent implements OnInit{
     this.stockData = [];
   }
 
+  myThing = "close"
+  changeData = () =>{
+    this.myThing = "datetime"
+  }
+  private sortValuesByDate(ascending: boolean) {
+    this.stockData.values.sort((a: { datetime: string; [key: string]: any; }, b: { datetime: string; [key: string]: any; }) => {
+      return ascending
+        ? new Date(a.datetime).getTime() - new Date(b.datetime).getTime()
+        : new Date(b.datetime).getTime() - new Date(a.datetime).getTime();
+    });
+  }
+
+  sortByDateAB = () => {
+    this.sortValuesByDate(true);
+  }
+
+  sortByDateBA = () => {
+    this.sortValuesByDate(false);
+  }
+  sortByDate = (ascending = true) => {
+
+    this.sortValuesByDate(ascending);
+  }
+
+
+
+
   ngOnInit(): void {
     this.twelveDataService.getStockData().subscribe((data) =>{
       this.stockData = data;
